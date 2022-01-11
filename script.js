@@ -12,4 +12,16 @@ firebase.initializeApp(firebaseConfig)
 const db = firebase.firestore()
 let auth = firebase.auth()
 
-db.collection('alunos')
+let email = "professor@testeprofessor.com"
+let senha = "professor123"
+
+db.collection('Alunos').get()
+    .then((snapshot)=>{
+        snapshot.forEach((doc)=>{
+            console.log(doc.data())
+        })
+    })
+
+auth.signInWithEmailAndPassword(email,senha).then((user)=>{
+    console.log("User logado: " + auth.currentUser.email)
+})
