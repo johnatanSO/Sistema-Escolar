@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: roboto, 'sans-serif';
+}
+body{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+}
+.logOut{
+    background-color: rgb(255, 110, 110);
+    width: 80px;
+    border-radius: 0.3rem;
+    text-align: center;
+    padding: 0.6rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 2px solid rgb(255, 93, 93);
+    color: rgb(70, 70, 70);
+}
+.perfilContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: auto;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -100%);
+    color: rgb(69, 69, 69);
+}
+
+.perfil{
+    background-color: rgb(193, 193, 193);
+    padding: 5rem;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+}
+#iconPerfil{
+   width: 180px;
+   border-radius: 50%;
+   background-color: rgb(234, 234, 234);
+   padding: 0.5rem;
+}
+.buttonsContent{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(255, 0, 0, 0);
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 60%;
+    left: 0%;
+}
+
+.notas, .advertence, .faults{
+    background-color: rgb(193, 193, 193);
+    text-align: center;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    transition: background-color 0.1s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;    
+}
+.notas:hover, .advertence:hover, .faults:hover{
+    background-color: blueviolet;
+}
+#notasIcon{
+    width: 150px;
+    border-radius: 50%;   
+    background-color: rgb(234, 234, 234);
+    padding: 0.5rem;
+}
+.notasContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(69, 69, 69);
+}
+.advertenceContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(69, 69, 69);
+}
+#advertenceIcon{
+    width: 150px;
+    border-radius: 50%;   
+    background-color: rgb(234, 234, 234);
+    padding: 0.5rem;
+}
+.faultsContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(69, 69, 69);
+}
+#faultsIcon{
+    width: 150px;
+    border-radius: 50%;   
+    background-color: rgb(234, 234, 234);
+    padding: 0.5rem;
+}

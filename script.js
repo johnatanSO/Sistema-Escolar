@@ -27,9 +27,9 @@ function validateUser(doc){
     if(doc.data().email == auth.currentUser.email){
         console.log("Bem vindo, ", doc.data().nome)
         if(doc.data().ocupacao == "professor"){
-           window.open("./pages/teacher/index.html") 
+           window.location.href= "./pages/teacher/index.html" 
         }else{
-            window.open("./pages/student/index.html")
+            window.location.href = "./pages/student/index.html"
         }
     }
 }
@@ -42,5 +42,8 @@ function login() {
                     snapshot.forEach(validateUser)
                 })
         })
-    .catch(err=>{console.log(err.message)});   
+    .catch(err=>{
+        console.log(err.message)
+        alert("Usuário ou senha inválidos, por favor, verifique os dados!")
+    });   
 }
