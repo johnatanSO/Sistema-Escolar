@@ -27,6 +27,7 @@ function validateUser(doc){
     if(doc.data().email == auth.currentUser.email){
         console.log("Bem vindo, ", doc.data().nome)
         if(doc.data().ocupacao == "professor"){
+            
            window.location.href= "./pages/teacher/index.html" 
         }else{
             window.location.href = "./pages/student/index.html"

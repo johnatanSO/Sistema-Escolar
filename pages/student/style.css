@@ -10,15 +10,15 @@ body{
     margin: 1rem;
 }
 .logOut{
-    background-color: rgb(255, 110, 110);
+    background-color: rgb(255, 53, 53);
     width: 80px;
     border-radius: 0.3rem;
     text-align: center;
     padding: 0.6rem;
     font-weight: 500;
     cursor: pointer;
-    border: 2px solid rgb(255, 93, 93);
-    color: rgb(70, 70, 70);
+    border: 2px solid rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
 }
 .perfilContent{
     display: flex;
@@ -76,7 +76,7 @@ body{
     margin-bottom: 1rem;    
 }
 .notas:hover, .advertence:hover, .faults:hover{
-    background-color: blueviolet;
+    background-color: rgb(255, 65, 65);
 }
 #notasIcon{
     width: 150px;
