@@ -12,16 +12,35 @@ firebase.initializeApp(firebaseConfig)
 const db = firebase.firestore()
 let auth = firebase.auth()
 
-let email = "professor@testeprofessor.com"
-let senha = "professor123"
+/* let email = "professor@testeprofessor.com"
+let senha = "professor123" */
 
-db.collection('Alunos').get()
-    .then((snapshot)=>{
-        snapshot.forEach((doc)=>{
-            console.log(doc.data())
+
+
+let email = document.getElementById('email')
+let senha = document.getElementById('password')
+let entrar = document.getElementById('entrar')
+
+entrar.addEventListener('click', login)
+
+function validateUser(doc){
+    if(doc.data().email == auth.currentUser.email){
+        console.log("Bem vindo, ", doc.data().nome)
+        if(doc.data().ocupacao == "professor"){
+           window.open("./pages/teacher/index.html") 
+        }else{
+            window.open("./pages/student/index.html")
+        }
+    }
+}
+
+function login() {
+    auth.signInWithEmailAndPassword(email.value, senha.value)
+        .then(()=>{
+            db.collection('Alunos').get()
+                .then(snapshot=>{
+                    snapshot.forEach(validateUser)
+                })
         })
-    })
-
-auth.signInWithEmailAndPassword(email,senha).then((user)=>{
-    console.log("User logado: " + auth.currentUser.email)
-})
+    .catch(err=>{console.log(err.message)});   
+}
