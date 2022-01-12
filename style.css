@@ -51,7 +51,7 @@ input[type="button"]{
     padding: 1rem;
     border-radius: 0.5rem;
     margin-top: 2rem;
-    box-shadow: 0px 7.5px 10px 0px rgba(174, 57, 57, 0.372);
+    box-shadow: 2px 5px 7px 0px rgba(174, 57, 57, 0.338);
 }
 
 input[type="button"]:hover{
