@@ -125,3 +125,54 @@ body{
     background-color: rgb(234, 234, 234);
     padding: 0.5rem;
 }
+
+
+
+/* MODAL CONTENTs */
+#modalContent{
+    position: absolute;
+    width: 80%;
+    padding: 15px 20px;
+    height: 80%;
+    border-radius: 1rem;
+    background-color:white;  
+  }
+#modalContent h2{
+      color:white;
+      background-color:red;
+      position: absolute;
+      top:0;
+      width:100%;
+      right: 0;
+      left: 0;
+      border-radius: 1rem 1rem 0rem 0rem;
+      padding: 1rem;
+      text-align: center;
+}
+.modal{
+    position:fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.781);
+    z-index: 99999;
+    pointer-events: auto;
+    display: none;
+    justify-content: center;
+    align-items: center; 
+}
+#fechar {
+    position: absolute;
+    width: 30px;
+    right: -10px;
+    top: -10px;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5px;
+    background: #ff4545;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #8d0000;
+    z-index: 9999999999;
+  }
