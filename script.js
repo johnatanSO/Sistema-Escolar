@@ -38,7 +38,7 @@ function validateUser(doc){
 function login() {
     auth.signInWithEmailAndPassword(email.value, senha.value)
         .then(()=>{
-            db.collection('Alunos').get()
+            db.collection("Alunos").get()
                 .then(snapshot=>{
                     snapshot.forEach(validateUser)
                 })

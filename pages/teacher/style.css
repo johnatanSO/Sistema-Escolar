@@ -43,7 +43,7 @@ body{
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
-    
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.146);
 }
 #iconPerfil{
    width: 180px;
@@ -67,15 +67,17 @@ body{
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    transition: background-color 0.1s;
+    transition: background-color 0.2s, transform 0.2s ease-out;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;    
+    margin-bottom: 1rem;  
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.146);  
 }
 .notas:hover, .advertence:hover, .faults:hover, .cadastrarAluno:hover{
     background-color: rgb(255, 65, 65);
+    transform: scale(1.05)
 }
 #notasIcon{
     width: 150px;
@@ -138,9 +140,10 @@ body{
     background-color:white;
     display: flex;
     justify-content: center;
-    align-items: flex-start; 
+    align-items: flex-start;
+    animation: scale 0.4s; 
   }
-#modalContent h2{
+    #modalContent h2{
       color:white;
       background-color:red;
       position: absolute;
@@ -152,20 +155,37 @@ body{
       padding: 1rem;
       text-align: center;
             
-}
-.modal{
-    position:fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.781);
-    z-index: 99999;
-    pointer-events: auto;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
+    }
+    .modal{
+        position:fixed; 
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.781);
+        z-index: 99999;
+        pointer-events: auto;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        animation: appear 0.4s;
+    }
+    @keyframes scale {
+        0%{
+            transform: scale(0);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+    @keyframes appear {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
 .fechar {
     position: absolute;
     width: 30px;
@@ -203,4 +223,42 @@ body{
       max-height: 85%;
       width: 100%;
       overflow: auto;
+  }
+  @media screen and (max-height: 500px){
+      .contentTable{
+        max-height: 60%
+      }
+      #editNotes{
+        display: none;
+      }
+  }
+/*   #editNotes{
+      border: none;
+      position: absolute;
+      left: 8%;
+      cursor: pointer;
+      transition: 0.15s;
+  }
+   #editNotes:hover{
+      color: red;
+  }
+  #editNotes::after{
+    font-family: "Font Awesome 5 Free";
+    content: "\f044"
+  }  */
+  #editNotes{
+      position: absolute;
+      bottom: -8%;
+      background-color: red;
+      padding: 0.6rem;
+      border-radius: 0.5rem;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s ease-out;
+      right: 0;
+      box-shadow: 2px 2px 5px rgba(145, 48, 48, 0.489);
+  }
+  #editNotes:hover{
+    transform: scale(1.04)
   }
