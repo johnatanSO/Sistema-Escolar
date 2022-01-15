@@ -142,8 +142,8 @@ body{
     display: flex;
     justify-content: center;
     align-self: center;
-    align-self: center;
-    animation: scale 0.4s; 
+    animation: scale 0.4s;
+    align-items: center; 
 }
 #modalEditNotes{
     position:fixed; 
@@ -154,7 +154,7 @@ body{
     background-color: rgba(0, 0, 0, 0.781);
     z-index: 99999;
     pointer-events: auto;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     animation: appear 0.4s;
@@ -283,7 +283,7 @@ h2#headerEditNotes{
       color: white;
       cursor: pointer;
       transition: 0.2s ease-out;
-      right: 0;
+      width: 40%;
       box-shadow: 2px 2px 5px rgba(145, 48, 48, 0.489);
   }
   button:hover{
@@ -291,4 +291,5 @@ h2#headerEditNotes{
   }
   button#confirmNotes{
       bottom:-16%;
+      
   }
