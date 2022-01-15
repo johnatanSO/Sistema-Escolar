@@ -131,6 +131,34 @@ body{
 
 
 /* MODAL CONTENTs */
+
+#modalEditNotesContent{
+    position: absolute;
+    width: 60%;
+    padding: 15px 20px;
+    height: 40%;
+    border-radius: 1rem;
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-self: center;
+    animation: scale 0.4s; 
+}
+#modalEditNotes{
+    position:fixed; 
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.781);
+    z-index: 99999;
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: appear 0.4s;
+}
 #modalContent{
     position: absolute;
     width: 80%;
@@ -143,7 +171,7 @@ body{
     align-items: flex-start;
     animation: scale 0.4s; 
   }
-    #modalContent h2{
+h2#headerNotas{
       color:white;
       background-color:red;
       position: absolute;
@@ -155,6 +183,19 @@ body{
       padding: 1rem;
       text-align: center;
             
+    }
+h2#headerEditNotes{
+    color:white;
+      background-color:rgb(255, 0, 0);
+      position: absolute;
+      top:0;
+      width:100%;
+      right: 0;
+      left: 0;
+      border-radius: 1rem 1rem 0rem 0rem;
+      padding: 0.6rem;
+      font-size: 1rem;
+      text-align: center;
     }
     .modal{
         position:fixed; 
@@ -228,25 +269,11 @@ body{
       .contentTable{
         max-height: 60%
       }
-      #editNotes{
+      button{
         display: none;
       }
   }
-/*   #editNotes{
-      border: none;
-      position: absolute;
-      left: 8%;
-      cursor: pointer;
-      transition: 0.15s;
-  }
-   #editNotes:hover{
-      color: red;
-  }
-  #editNotes::after{
-    font-family: "Font Awesome 5 Free";
-    content: "\f044"
-  }  */
-  #editNotes{
+  button{
       position: absolute;
       bottom: -8%;
       background-color: red;
@@ -259,6 +286,9 @@ body{
       right: 0;
       box-shadow: 2px 2px 5px rgba(145, 48, 48, 0.489);
   }
-  #editNotes:hover{
+  button:hover{
     transform: scale(1.04)
+  }
+  button#confirmNotes{
+      bottom:-16%;
   }
