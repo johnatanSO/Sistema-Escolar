@@ -1,145 +1,129 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div onclick="logOut()" class="logOut">Sair</div>
     <div class="perfilContent">
-        <div class="perfil"><img id="iconPerfil" src="../teacher/assets/teacher.png" alt=""></div>
-        <h2 id="teacherName">Professor</h2>
+      <div class="perfil">
+        <img id="iconPerfil" src="../teacher/assets/teacher.png" alt="" />
+      </div>
+      <h2 id="teacherName">Professor</h2>
     </div>
 
     <div class="buttonsContent">
-        <div class="notasContent">
-             <div class="notas"><img id="notasIcon" src="./assets/notas.png" alt=""></div>
-             <h2>Notas</h2>
+      <div class="notasContent">
+        <div class="notas">
+          <img id="notasIcon" src="./assets/notas.png" alt="" />
         </div>
+        <h2>Notas</h2>
+      </div>
 
-        <div class="advertenceContent">
-             <div class="advertence"><img id="advertenceIcon" src="./assets/advertence.png" alt=""></div>
-             <h2>Advertências</h2>
+      <div class="advertenceContent">
+        <div class="advertence">
+          <img id="advertenceIcon" src="./assets/advertence.png" alt="" />
         </div>
-        
-        <div class="faultsContent">
-            <div class="faults"></div>
-            <h2>Faltas</h2>
-        </div>
-        
-        <div class="cadastrarAlunoContent">
-            <div class="cadastrarAluno"></div>
-            <h2>Cadastrar alunos</h2>
-        </div>
+        <h2>Advertências</h2>
+      </div>
+
+      <div class="faultsContent">
+        <div class="faults"></div>
+        <h2>Faltas</h2>
+      </div>
+
+      <div class="cadastrarAlunoContent">
+        <div class="cadastrarAluno"></div>
+        <h2>Cadastrar alunos</h2>
+      </div>
     </div>
 
     <!-- Notas -->
     <div id="modal" class="modal modalNotas">
-        <div id="modalContent">
-            <a onclick="fechar(this)" href="#fechar" title="Fechar" class="fechar" >x</a>
-            <h2 id="headerNotas">Notas</h2>
-            <button id="editNotes">Editar Notas</button>
+      <div id="modalContent">
+        <a onclick="fechar(this)" href="#fechar" title="Fechar" class="fechar"
+          >x</a
+        >
+        <h2 id="headerNotas">Notas</h2>
+        <button id="editNotes">Editar Notas</button>
 
-            <div id="modalEditNotes">
-                <div id="modalEditNotesContent">
-                    <h2 id="headerEditNotes">Editar Notas</h2>
-                    <button id="confirmNotes">Confirmar</button>
-                </div>
+        <div id="modalEditNotes">
+          <div id="modalEditNotesContent">
+            <a
+              onclick="fechar(this)"
+              href="#fechar"
+              title="Fechar"
+              class="fechar"
+              >x</a
+            >
+            <h2 id="headerEditNotes">Editar Notas</h2>
+            <div class="inputNotesDiv">
+              <input
+                id="inputList"
+                list="alunos"
+                placeholder="Selecione um aluno..."
+              />
+              <datalist id="alunos"></datalist>
+              <div class="notasInputEdit">
+                <input
+                  placeholder="Nota 1"
+                  type="number"
+                  name="nota1Edit"
+                  id="nota1Edit"
+                />
+                <input
+                  placeholder="Nota 2"
+                  type="number"
+                  name="nota2Edit"
+                  id="nota2Edit"
+                />
+              </div>
             </div>
-
-            <div class="contentTable">
-                
-                <table id="tableNotes">
-                    <tr>
-                        <th>Nome</th>
-                        <th>Nota 1</th>
-                        <th>Nota 2</th>
-                        <th>Total</th>
-                    </tr>
-                    <tr>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                    </tr>
-                    <tr>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                    </tr>
-                    <tr>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                    </tr>
-                    <tr>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                    </tr>
-                    <tr>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                    </tr>
-                    <tr>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                    </tr>
-                    <tr>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                    </tr>
-                    <tr>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                    </tr>
-                    <tr>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                    </tr>
-                    <tr>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                        <td>asas</td>
-                    </tr>
-                </table>
-                
-            </div>           
+            <button id="confirmNotes" onclick="atualizar()">Confirmar</button>
+          </div>
         </div>
+
+        <div class="contentTable">
+          <table id="tableNotes">
+            <tr>
+              <th>Nome</th>
+              <th>Nota 1</th>
+              <th>Nota 2</th>
+              <th>Total</th>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
 
     <!-- Advertências -->
     <div id="modal" class="modal modalAdvertencia">
-        <div id="modalContent">
-            <a onclick="fechar(this)" href="#fechar" title="Fechar" class="fechar">x</a>
-            <h2>Advertências</h2>        
-        </div>
+      <div id="modalContent">
+        <a onclick="fechar(this)" href="#fechar" title="Fechar" class="fechar"
+          >x</a
+        >
+        <h2>Advertências</h2>
+      </div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

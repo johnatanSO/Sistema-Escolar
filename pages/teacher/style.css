@@ -1,295 +1,333 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: roboto, 'sans-serif';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: roboto, "sans-serif";
 }
-body{
-    display: flex;
-    justify-content: flex-end;
-    margin: 1rem;
+body {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
 }
-.logOut{
-    background-color: rgb(255, 53, 53);
-    width: 80px;
-    border-radius: 0.3rem;
-    text-align: center;
-    padding: 0.6rem;
-    font-weight: 500;
-    cursor: pointer;
-    border: 2px solid rgb(255, 0, 0);
-    color: rgb(255, 255, 255);
+.logOut {
+  background-color: rgb(255, 53, 53);
+  width: 80px;
+  border-radius: 0.3rem;
+  text-align: center;
+  padding: 0.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 2px solid rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
 }
-.perfilContent{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    margin: auto;
-    left: 50%;
-    top: 45%;
-    transform: translate(-50%, -100%);
-    color: rgb(69, 69, 69);
-}
-
-.perfil{
-    background-color: rgb(193, 193, 193);
-    padding: 5rem;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.146);
-}
-#iconPerfil{
-   width: 180px;
-   border-radius: 50%;
-   background-color: rgb(234, 234, 234);
-   padding: 0.5rem;
-}
-.buttonsContent{
-    display: flex;
-    justify-content: space-around;
-    background-color: rgba(255, 0, 0, 0);
-    width: 100%;
-    position: absolute;
-    left: 0%;
-    top: 60%;
+.perfilContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: auto;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -100%);
+  color: rgb(69, 69, 69);
 }
 
-.notas, .advertence, .faults, .cadastrarAluno{
-    background-color: rgb(193, 193, 193);
-    text-align: center;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    transition: background-color 0.2s, transform 0.2s ease-out;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;  
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.146);  
+.perfil {
+  background-color: rgb(193, 193, 193);
+  padding: 5rem;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.146);
 }
-.notas:hover, .advertence:hover, .faults:hover, .cadastrarAluno:hover{
-    background-color: rgb(255, 65, 65);
-    transform: scale(1.05)
+#iconPerfil {
+  width: 180px;
+  border-radius: 50%;
+  background-color: rgb(234, 234, 234);
+  padding: 0.5rem;
 }
-#notasIcon{
-    width: 150px;
-    border-radius: 50%;   
-    background-color: rgb(234, 234, 234);
-    padding: 0.5rem;
-}
-.notasContent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(69, 69, 69);
-}
-.advertenceContent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(69, 69, 69);
-}
-#advertenceIcon{
-    width: 150px;
-    border-radius: 50%;   
-    background-color: rgb(234, 234, 234);
-    padding: 0.5rem;
-}
-.faultsContent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(69, 69, 69);
-}
-#faultsIcon{
-    width: 150px;
-    border-radius: 50%;   
-    background-color: rgb(234, 234, 234);
-    padding: 0.5rem;
-}
-.cadastrarAlunoContent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(69, 69, 69);
-}
-#faultsIcon{
-    width: 150px;
-    border-radius: 50%;   
-    background-color: rgb(234, 234, 234);
-    padding: 0.5rem;
+.buttonsContent {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(255, 0, 0, 0);
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  top: 60%;
 }
 
-
+.notas,
+.advertence,
+.faults,
+.cadastrarAluno {
+  background-color: rgb(193, 193, 193);
+  text-align: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  transition: background-color 0.2s, transform 0.2s ease-out;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.146);
+}
+.notas:hover,
+.advertence:hover,
+.faults:hover,
+.cadastrarAluno:hover {
+  background-color: rgb(255, 65, 65);
+  transform: scale(1.05);
+}
+#notasIcon {
+  width: 150px;
+  border-radius: 50%;
+  background-color: rgb(234, 234, 234);
+  padding: 0.5rem;
+}
+.notasContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(69, 69, 69);
+}
+.advertenceContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(69, 69, 69);
+}
+#advertenceIcon {
+  width: 150px;
+  border-radius: 50%;
+  background-color: rgb(234, 234, 234);
+  padding: 0.5rem;
+}
+.faultsContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(69, 69, 69);
+}
+#faultsIcon {
+  width: 150px;
+  border-radius: 50%;
+  background-color: rgb(234, 234, 234);
+  padding: 0.5rem;
+}
+.cadastrarAlunoContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(69, 69, 69);
+}
+#faultsIcon {
+  width: 150px;
+  border-radius: 50%;
+  background-color: rgb(234, 234, 234);
+  padding: 0.5rem;
+}
 
 /* MODAL CONTENTs */
 
-#modalEditNotesContent{
-    position: absolute;
-    width: 60%;
-    padding: 15px 20px;
-    height: 40%;
-    border-radius: 1rem;
-    background-color:white;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    animation: scale 0.4s;
-    align-items: center; 
+#modalEditNotesContent {
+  position: absolute;
+  width: 40%;
+  padding: 15px 20px;
+  height: 30%;
+  border-radius: 1rem;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  animation: scale 0.4s;
+  align-items: center;
 }
-#modalEditNotes{
-    position:fixed; 
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.781);
-    z-index: 99999;
-    pointer-events: auto;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    animation: appear 0.4s;
+#modalEditNotes {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.781);
+  z-index: 9999999999;
+  pointer-events: auto;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: appear 0.4s;
 }
-#modalContent{
-    position: absolute;
-    width: 80%;
-    padding: 15px 20px;
-    height: 80%;
-    border-radius: 1rem;
-    background-color:white;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    animation: scale 0.4s; 
+#modalContent {
+  position: absolute;
+  width: 80%;
+  padding: 15px 20px;
+  height: 80%;
+  border-radius: 1rem;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: scale 0.4s;
+}
+h2#headerNotas {
+  color: white;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  right: 0;
+  left: 0;
+  border-radius: 1rem 1rem 0rem 0rem;
+  padding: 1rem;
+  text-align: center;
+}
+h2#headerEditNotes {
+  color: white;
+  background-color: rgb(255, 0, 0);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  right: 0;
+  left: 0;
+  border-radius: 1rem 1rem 0rem 0rem;
+  padding: 0.6rem;
+  font-size: 1rem;
+  text-align: center;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.781);
+  z-index: 99999;
+  pointer-events: auto;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: appear 0.4s;
+}
+@keyframes scale {
+  0% {
+    transform: scale(0);
   }
-h2#headerNotas{
-      color:white;
-      background-color:red;
-      position: absolute;
-      top:0;
-      width:100%;
-      right: 0;
-      left: 0;
-      border-radius: 1rem 1rem 0rem 0rem;
-      padding: 1rem;
-      text-align: center;
-            
-    }
-h2#headerEditNotes{
-    color:white;
-      background-color:rgb(255, 0, 0);
-      position: absolute;
-      top:0;
-      width:100%;
-      right: 0;
-      left: 0;
-      border-radius: 1rem 1rem 0rem 0rem;
-      padding: 0.6rem;
-      font-size: 1rem;
-      text-align: center;
-    }
-    .modal{
-        position:fixed; 
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.781);
-        z-index: 99999;
-        pointer-events: auto;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        animation: appear 0.4s;
-    }
-    @keyframes scale {
-        0%{
-            transform: scale(0);
-        }
-        100%{
-            transform: scale(1);
-        }
-    }
-    @keyframes appear {
-        0%{
-            opacity: 0;
-        }
-        100%{
-            opacity: 1;
-        }
-    }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .fechar {
-    position: absolute;
-    width: 30px;
-    right: -10px;
-    top: -10px;
-    text-align: center;
-    line-height: 30px;
-    margin-top: 5px;
-    background: #ff4545;
-    border-radius: 50%;
-    font-size: 16px;
-    color: #8d0000;
-    z-index: 9999999999;
-  }
+  position: absolute;
+  width: 30px;
+  /*top: -10px; */
+  text-align: center;
+  line-height: 30px;
+  background: #ff4545;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #8d0000;
+  z-index: 9999999999;
+  right: -1%;
+  top: -5px;
+  align-self: flex-start;
+}
 
-  /* TABLE */
-  table{
-      background-color: rgb(240, 240, 240);
-      width: 100%;
-      text-align: center;
-      border-collapse: collapse;
-      overflow: auto;
+/* TABLE */
+table {
+  background-color: rgb(240, 240, 240);
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  overflow: auto;
+}
+td {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+th {
+  background-color: rgb(205, 205, 205);
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+.contentTable {
+  margin-top: 4rem;
+  max-height: 85%;
+  width: 100%;
+  overflow: auto;
+}
+@media screen and (max-width: 800px) {
+  .inputNotesDiv {
+    max-width: 50%;
   }
-  td{
-      border: 1px solid black;
-      padding: 0.5rem;
+  .notasInputEdit {
+    flex-direction: column;
   }
-  th{
-      background-color: rgb(205, 205, 205);
-      border: 1px solid black;
-      padding: 0.5rem;
+}
+@media screen and (max-height: 500px) {
+  .contentTable {
+    max-height: 60%;
   }
-  .contentTable{
-      margin-top: 4rem;
-      max-height: 85%;
-      width: 100%;
-      overflow: auto;
+  button {
+    margin-top: 100%;
   }
-  @media screen and (max-height: 500px){
-      .contentTable{
-        max-height: 60%
-      }
-      button{
-        display: none;
-      }
-  }
-  button{
-      position: absolute;
-      bottom: -8%;
-      background-color: red;
-      padding: 0.6rem;
-      border-radius: 0.5rem;
-      border: none;
-      color: white;
-      cursor: pointer;
-      transition: 0.2s ease-out;
-      width: 40%;
-      box-shadow: 2px 2px 5px rgba(145, 48, 48, 0.489);
-  }
-  button:hover{
-    transform: scale(1.04)
-  }
-  button#confirmNotes{
-      bottom:-16%;
-      
-  }
+}
+button {
+  position: absolute;
+  bottom: -8%;
+  background-color: red;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  width: 40%;
+  box-shadow: 2px 2px 5px rgba(145, 48, 48, 0.489);
+}
+button:hover {
+  transform: scale(1.04);
+}
+button#confirmNotes {
+  bottom: -21%;
+}
+
+.inputNotesDiv {
+  text-align: center;
+  margin-top: 9%;
+}
+input#inputList {
+  width: 100%;
+}
+
+input {
+  padding: 0.5rem;
+  margin-bottom: 2px;
+  text-align: center;
+  outline: none;
+  border-radius: 0.3rem;
+  border: solid 1px grey;
+}
+.notasInputEdit {
+  display: flex;
+}
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
