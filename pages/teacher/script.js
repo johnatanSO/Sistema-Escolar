@@ -42,7 +42,7 @@ function fechar(element) {
   element.parentNode.parentNode.style = "none";
 }
 /* Firebase */
-
+/* ------------------------------notas---------------------------------- */
 function getNotas() {
   db.collection("Alunos")
     .get()
@@ -73,7 +73,7 @@ function getNotas() {
     });
 }
 
-/* Editar Notas */
+/*------------------------------- Editar Notas----------------- */
 
 let editNotesButton = document.querySelector("#editNotes");
 editNotesButton.addEventListener("click", () => {
@@ -116,3 +116,31 @@ function atualizar() {
   }
 }
 getNotas();
+
+
+/* -------------------------------------- advertências ------------------ */
+
+function getAdvertencias(){
+  db.collection('Alunos').get()
+    .then((snapshot)=>{
+      snapshot.forEach((element)=>{
+        if (element.data().ocupacao != "professor"){
+          let table = document.getElementById("tableAdvertencias")
+          let tr = document.createElement('tr')
+          
+
+          tr.innerHTML = `<td>${element.data().nome}</td>`
+          tr.innerHTML += `<td>${element.data().advertencias.length} advertências</td>`
+          
+          table.appendChild(tr)
+        }
+      })
+      return snapshot
+    })
+    .then((snapshot)=>{
+      snapshot.forEach((element)=>{
+        element.data().nome
+      })
+    })
+}
+getAdvertencias()
