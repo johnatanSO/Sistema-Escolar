@@ -278,26 +278,19 @@ h2#headerEditNotes {
 }
 
 /* TABLE */
-table {
+/* table {
   background-color: rgb(240, 240, 240);
   width: 100%;
   text-align: center;
   border-collapse: collapse;
   overflow: auto;
-}
+} */
 td {
-  border: 1px solid black;
-  padding: 0.5rem;
+  padding: 0.4rem;
   text-align: left;
+  background-color: rgb(230, 230, 230);
 }
-tr {
-  cursor: pointer;
-}
-th {
-  background-color: rgb(205, 205, 205);
-  border: 1px solid black;
-  padding: 0.5rem;
-}
+
 .contentTable {
   margin-top: 4rem;
   max-height: 85%;
@@ -388,7 +381,7 @@ input[type="button"]:hover {
   text-align: left;
   border: none;
   outline: none;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
 .active,
