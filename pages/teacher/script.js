@@ -12,10 +12,13 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 let auth = firebase.auth();
 
+/* -----------------------acordion----------------- */
+
 /* ---------------------------------- */
 
 function logOut() {
-  auth.signOut()
+  auth
+    .signOut()
     .then(() => {
       console.log("Usuário deslogado!");
       window.location.href = "../../index.html";
@@ -23,7 +26,6 @@ function logOut() {
     .catch((err) => {
       console.log(err);
     });
-  
 }
 
 let buttonNotas = document.querySelector(".notasContent");
@@ -49,30 +51,45 @@ function getNotas() {
     .then((snapshot) => {
       snapshot.forEach((element) => {
         if (element.data().ocupacao != "professor") {
-          let table = document.getElementById("tableNotes");
-          let tr = document.createElement("tr");
+          console.log(element.data().nome);
+          let contentTable = document.querySelector(".contentTable");
 
-          let datalistAlunos = document.querySelector("#alunos");
-          let optionAlunos = document.createElement("option");
+          let name = document.createElement("button");
+          name.classList.toggle("accordion");
+          name.innerText = element.data().nome;
 
-          let notaFinal = parseFloat(
-            (Number(element.data().notas.nota1) +
-              Number(element.data().notas.nota2)) /
-              2
-          ).toFixed(1);
+          let panel = document.createElement("div");
+          panel.classList.toggle("panel");
+          panel.innerHTML = "<p>Lore Ipsum</p>";
+          console.log(panel);
 
-          optionAlunos.setAttribute("value", element.data().nome);
-          tr.innerHTML = `<td>${element.data().nome}</td>`;
-          tr.innerHTML += `<td>${element.data().notas.nota1}</td>`;
-          tr.innerHTML += `<td>${element.data().notas.nota2}</td>`;
-          tr.innerHTML += `<td>${notaFinal}</td>`;
-          table.appendChild(tr);
-          datalistAlunos.appendChild(optionAlunos);
+          contentTable.appendChild(name);
+          contentTable.appendChild(panel);
+
+          console.log(name);
+
+          name.addEventListener("click", function () {
+            this.classList.toggle("active");
+
+            var panel = this.nextElementSibling;
+            if (panel.style.display == "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
         }
       });
+      return snapshot;
+    })
+    .then((snapshot) => {
+      snapshot.forEach(() => {});
     });
 }
 
+/* acc.addEventListener('click', ()=>{
+  console.log(this)
+}) */
 /*------------------------------- Editar Notas----------------- */
 
 let editNotesButton = document.querySelector("#editNotes");
@@ -117,30 +134,31 @@ function atualizar() {
 }
 getNotas();
 
-
 /* -------------------------------------- advertências ------------------ */
 
-function getAdvertencias(){
-  db.collection('Alunos').get()
-    .then((snapshot)=>{
-      snapshot.forEach((element)=>{
-        if (element.data().ocupacao != "professor"){
-          let table = document.getElementById("tableAdvertencias")
-          let tr = document.createElement('tr')
-          
+function getAdvertencias() {
+  db.collection("Alunos")
+    .get()
+    .then((snapshot) => {
+      snapshot.forEach((element) => {
+        if (element.data().ocupacao != "professor") {
+          let table = document.getElementById("tableAdvertencias");
+          let tr = document.createElement("tr");
 
-          tr.innerHTML = `<td>${element.data().nome}</td>`
-          tr.innerHTML += `<td>${element.data().advertencias.length} advertências</td>`
-          
-          table.appendChild(tr)
+          tr.innerHTML = `<td>${element.data().nome}</td>`;
+          tr.innerHTML += `<td>${
+            element.data().advertencias.length
+          } advertências</td>`;
+
+          table.appendChild(tr);
         }
-      })
-      return snapshot
+      });
+      return snapshot;
     })
-    .then((snapshot)=>{
-      snapshot.forEach((element)=>{
-        element.data().nome
-      })
-    })
+    .then((snapshot) => {
+      snapshot.forEach((element) => {
+        element.data().nome;
+      });
+    });
 }
-getAdvertencias()
+getAdvertencias();
