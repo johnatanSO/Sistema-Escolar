@@ -53,41 +53,45 @@ function getNotas() {
         if (element.data().ocupacao != "professor") {
           let contentTable = document.querySelector(".contentTable");
 
-          let materias = []
-          let nota1 = element.data().materias[0].nota1
-          let nota2 = element.data().materias[0].nota2
-          let i = 0
-
-          element.data().materias.map((materia)=>{
-            materias.push(materia)
-          })
-          console.log(materias)
-
           let name = document.createElement("button");
           name.classList.toggle("accordion");
           name.innerText = element.data().nome;
 
-          console.log()
-
-
-          let tr = document.createElement('tr')
-          tr.innerHTML = `<td>${element.data().materias[0].materia}</td>`
-          tr.innerHTML += `<td>${nota1}</td>`
-          tr.innerHTML += `<td>${nota2}</td>`
-          
-
           let panel = document.createElement("div");
           panel.classList.toggle("panel");
 
+          let materias = [];
+          element.data().materias.map((materia) => {
+            materias.push(materia);
+          });
+          let trTh = document.createElement('tr')
+          trTh.innerHTML += "<th>Matéria</th>"
+          trTh.innerHTML += "<th>Nota 1</th>"
+          trTh.innerHTML += "<th>Nota 2</th>"
+          trTh.innerHTML += "<th>Média</th>"
+          panel.appendChild(trTh)
           
-          
+          console.log(element.data().nome + ":")
+          for(let i = 0; i < materias.length; i++){
+            console.log(materias[i].materia)
+            let tr = document.createElement("tr");
+
+            let nota1 = materias[i].nota1
+            let nota2 = materias[i].nota2
+            let media = Number((nota1 + nota2)/2).toFixed(1)
+            
+            tr.innerHTML += `<td>${materias[i].materia}</td>`
+            tr.innerHTML += `<td>${nota1}</td>`
+            tr.innerHTML += `<td>${nota2}</td>`
+            tr.innerHTML += `<td>${media}</td>`
+            panel.appendChild(tr);
+          }
+        
 
           contentTable.appendChild(name);
           contentTable.appendChild(panel);
-          panel.appendChild(tr)
-
           
-          i++
+
           name.addEventListener("click", function () {
             this.classList.toggle("active");
 
