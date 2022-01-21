@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Área do professor</title>
+    <link rel="shortcut icon" href="../teacher/assets/teacher.png" type="image/x-icon">
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -62,6 +63,8 @@
         <h2 id="headerNotas">Notas</h2>
         <button id="editNotes">Editar notas</button>
 
+
+        <!-- Editar Notas -->
         <div id="modalEditNotes">
           <div id="modalEditNotesContent">
             <a
@@ -79,6 +82,15 @@
                 placeholder="Selecione um aluno..."
               />
               <datalist id="alunos"></datalist>
+
+              <input
+                id="materiasList"
+                list="materias"
+                placeholder="Selecione uma matéria..."
+              />
+              <datalist id="materias"></datalist>
+
+
               <div class="notasInputEdit">
                 <input
                   placeholder="Nota 1"

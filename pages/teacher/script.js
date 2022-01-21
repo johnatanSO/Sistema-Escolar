@@ -71,9 +71,9 @@ function getNotas() {
           trTh.innerHTML += "<th>Média</th>"
           panel.appendChild(trTh)
           
-          console.log(element.data().nome + ":")
+          
           for(let i = 0; i < materias.length; i++){
-            console.log(materias[i].materia)
+            
             let tr = document.createElement("tr");
 
             let nota1 = materias[i].nota1
@@ -107,7 +107,24 @@ function getNotas() {
       return snapshot;
     })
     .then((snapshot) => {
-      snapshot.forEach(() => {});
+      snapshot.forEach((element) => {
+        if(element.data().ocupacao != "professor"){
+          let dataListAlunos = document.getElementById("alunos")
+          let optionAlunos = document.createElement('option')
+          optionAlunos.setAttribute('value', element.data().nome)
+          dataListAlunos.appendChild(optionAlunos)
+          
+          for(let i = 0; i < element.data().materias.length; i++){
+            if(optionAlunos.value == element.data().nome){
+              let dataListMaterias = document.getElementById("materias")
+              let optionMaterias = document.createElement('option')
+              optionMaterias.setAttribute('value', element.data().materias[i].materia)
+              dataListMaterias.appendChild(optionMaterias)
+            }
+            
+          }
+        }
+      });
     });
 }
 /*------------------------------- Editar Notas----------------- */
@@ -119,9 +136,15 @@ editNotesButton.addEventListener("click", () => {
 });
 
 function atualizar() {
+
   let aluno = document.querySelector("#inputList");
   let nota1 = document.querySelector("#nota1Edit");
   let nota2 = document.querySelector("#nota2Edit");
+  let materiasSelect = document.querySelector("#materiasList")
+
+  console.log(aluno.value, nota1.value, nota2.value)
+
+  console.log(materiasSelect.value)
 
   if (
     nota1.value < 0 ||
@@ -133,30 +156,16 @@ function atualizar() {
   ) {
     console.log("Erro, por favor verifique os campos e tente novamente!");
   } else {
-    db.collection("Alunos")
-      .doc(aluno.value)
-      .update({
-        notas: {
-          nota1: nota1.value,
-          nota2: nota2.value,
-        },
-      })
-      .then(() => {
-        console.log("sucess");
-        setInterval(() => {
-          document.location.reload(true);
-        }, 1000);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    db.collection('Alunos').doc(aluno.value).update({
+      
+    })
   }
 }
 getNotas();
 
 /* -------------------------------------- advertências ------------------ */
 
-function getAdvertencias() {
+/* function getAdvertencias() {
   db.collection("Alunos")
     .get()
     .then((snapshot) => {
@@ -181,4 +190,4 @@ function getAdvertencias() {
       });
     });
 }
-getAdvertencias();
+getAdvertencias(); */

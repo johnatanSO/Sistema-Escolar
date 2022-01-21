@@ -337,7 +337,7 @@ button#confirmNotes {
   text-align: center;
   margin-top: 9%;
 }
-input#inputList {
+input#inputList, input#materiasList {
   width: 100%;
 }
 
