@@ -16,15 +16,7 @@ let auth = firebase.auth();
 
 /* ---------------------------------- */
 
-const materias = [];
-db.collection("Alunos")
-  .doc("Matheus Henrique")
-  .get()
-  .then((element) => {
-    for (i of element.data().materias) {
-      materias.push(i.materia);
-    }
-  });
+const materias = ["Português", "Matemática", "Programação", "Física", "Geografia","Química"]
 
 function logOut() {
   auth
@@ -174,6 +166,7 @@ function atualizar() {
                 }),
               })
               .then(() => {
+                console.log("Adicionando notas")
                 db.collection("Alunos")
                   .doc(aluno.value)
                   .update({
@@ -193,6 +186,7 @@ function atualizar() {
               .catch((err) => {
                 console.log(err);
               });
+              return
           }
         }
       });
