@@ -46,14 +46,14 @@ function fechar(element) {
   element.parentNode.parentNode.style = "none";
 }
 /* Firebase */
-/* ------------------------------notas---------------------------------- */
+/* -----------------------------PEGAR NOTAS---------------------------------- */
 function getNotas() {
   db.collection("Alunos")
     .get()
     .then((snapshot) => {
       snapshot.forEach((element) => {
         if (element.data().ocupacao != "professor") {
-          let contentTable = document.querySelector(".contentTable");
+          let contentTableNotas = document.querySelector(".contentTableNotas");
 
           let name = document.createElement("button");
           name.classList.toggle("accordion");
@@ -87,8 +87,8 @@ function getNotas() {
             panel.appendChild(tr);
           }
 
-          contentTable.appendChild(name);
-          contentTable.appendChild(panel);
+          contentTableNotas.appendChild(name);
+          contentTableNotas.appendChild(panel);
 
           name.addEventListener("click", function () {
             this.classList.toggle("active");
@@ -196,29 +196,77 @@ getNotas();
 
 /* -------------------------------------- advertências ------------------ */
 
-/* function getAdvertencias() {
+ function getAdvertencias() {
   db.collection("Alunos")
     .get()
     .then((snapshot) => {
       snapshot.forEach((element) => {
         if (element.data().ocupacao != "professor") {
-          let table = document.getElementById("tableAdvertencias");
-          let tr = document.createElement("tr");
+          let contentTableAdvertencias = document.querySelector(".contentTableAdvertencias");
 
-          tr.innerHTML = `<td>${element.data().nome}</td>`;
-          tr.innerHTML += `<td>${
-            element.data().advertencias.length
-          } advertências</td>`;
+          let name = document.createElement("button");
+          name.classList.toggle('accordion')
+          name.innerText = element.data().nome
 
-          table.appendChild(tr);
+          let panel = document.createElement('div')
+          panel.classList.toggle('panel')
+
+          let advertencias = []
+          element.data().advertencias.map((advertencia)=>{
+            advertencias.push(advertencia)
+          })
+          let trTh = document.createElement('tr')
+          trTh.innerHTML += "<th>Data</th>"
+          trTh.innerHTML += "<th>Motivo</th>"
+
+          panel.appendChild(trTh)
+
+          for(let i = 0; i < advertencias.length; i++){
+            let tr = document.createElement('tr')
+
+            let data = advertencias[i].data
+            let motivo = advertencias[i].motivo
+
+            tr.innerHTML += `<td>${data}</td>`
+            tr.innerHTML += `<td>${motivo}</td>`
+
+            panel.appendChild(tr)
+          }
+
+          contentTableAdvertencias.appendChild(name)
+          contentTableAdvertencias.appendChild(panel)
+
+          name.addEventListener('click', function (){
+            this.classList.toggle('active')
+            
+            var panel = this.nextElementSibling
+            if(panel.style.display == 'block'){
+              panel.style.display = 'none'
+            }else{
+              panel.style.display = 'block'
+            }
+          })
         }
       });
       return snapshot;
     })
     .then((snapshot) => {
       snapshot.forEach((element) => {
-        element.data().nome;
+        if (element.data().ocupacao != "professor") {
+          let dataListAlunos = document.getElementById("alunos");
+          let optionAlunos = document.createElement("option");
+          optionAlunos.setAttribute("value", element.data().nome);
+          dataListAlunos.appendChild(optionAlunos);
+        }
       });
     });
 }
-getAdvertencias(); */
+getAdvertencias();
+
+
+/* ------------------------------------EDITAR ADVERTÊNCIAS------------------------------ */
+let editAdvertenciasButton = document.querySelector("#editAdvertencias");
+editAdvertenciasButton.addEventListener("click", () => {
+  let modalEditAdvertencias = document.querySelector("#modalEditAdvertencias");
+  modalEditAdvertencias.style.display = "flex";
+});

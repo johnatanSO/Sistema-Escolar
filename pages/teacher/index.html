@@ -110,9 +110,14 @@
           </div>
         </div>
 
-        <div class="contentTable"></div>
+        <div class="contentTableNotas"></div>
       </div>
     </div>
+
+
+
+
+<!-- --------------------------------------------------- -->
 
     <!-- Advertências -->
     <div id="modal" class="modal modalAdvertencia">
@@ -123,14 +128,35 @@
         <h2 id="headerAdvertencias">Advertências</h2>
         <button id="editAdvertencias">Adicionar advertência</button>
 
-        <div class="contentTable">
-          <table id="tableAdvertencias">
-            <tr>
-              <th>Nome</th>
-              <th>Quantidade de advertências</th>
-            </tr>
-          </table>
+        <div id="modalEditAdvertencias">
+          <div id="modalEditAdvertenciasContent">
+            <a
+              onclick="fechar(this)"
+              href="#fechar"
+              title="Fechar"
+              class="fechar"
+              >x</a
+            >
+            <h2 id="headerEditNotes">Adicionar advertência</h2>
+            <div class="inputNotesDiv">
+              <input
+                id="inputList"
+                list="alunos"
+                placeholder="Selecione um aluno..."
+              />
+              <datalist id="alunos"></datalist>
+
+              <input size="2" placeholder="Digite o motivo da advertência..." type="text" name="advertenciasTextContent" id="advertenciasTextContent">
+
+
+              
+            </div>
+            <button id="confirmNotes" onclick="atualizar()">Confirmar</button>
+          </div>
         </div>
+
+
+        <div class="contentTableAdvertencias"></div>
       </div>
     </div>
 

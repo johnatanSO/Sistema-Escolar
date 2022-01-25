@@ -138,7 +138,7 @@ body {
 
 /* MODAL CONTENTs */
 
-#modalEditNotesContent {
+#modalEditNotesContent, #modalEditAdvertenciasContent {
   position: absolute;
   width: 40%;
   padding: 15px 20px;
@@ -151,7 +151,7 @@ body {
   animation: scale 0.4s;
   align-items: center;
 }
-#modalEditNotes {
+#modalEditNotes, #modalEditAdvertencias {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -294,7 +294,7 @@ th {
   color: rgb(62, 62, 62);
   z-index: 999999999999999999;
 }
-.contentTable {
+.contentTableNotas, .contentTableAdvertencias {
   margin-top: 4rem;
   max-height: 85%;
   width: 100%;
@@ -345,7 +345,7 @@ button#confirmNotes {
   margin-top: 9%;
 }
 input#inputList,
-input#materiasList {
+input#materiasList,input#advertenciasTextContent {
   width: 100%;
 }
 
