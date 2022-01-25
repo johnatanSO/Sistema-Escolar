@@ -285,14 +285,15 @@ th {
   padding: 0.5rem;
   text-align: left;
   background-color: rgb(230, 230, 230);
-  width: 200px;
+  width: 100%;
   border: 1px solid grey;
-  z-index: 99999999999999999999999999999999999999999;
+  z-index: 9999999;
 }
 th {
   background-color: rgb(177, 177, 177);
   color: rgb(62, 62, 62);
   z-index: 999999999999999999;
+  width: 100%;
 }
 .contentTableNotas, .contentTableAdvertencias {
   margin-top: 4rem;
@@ -345,8 +346,11 @@ button#confirmNotes {
   margin-top: 9%;
 }
 input#inputList,
-input#materiasList,input#advertenciasTextContent {
+input#materiasList {
   width: 100%;
+}
+input#advertenciasTextContent{
+ width: 100%;
 }
 
 input {

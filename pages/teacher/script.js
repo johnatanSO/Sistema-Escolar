@@ -216,8 +216,8 @@ getNotas();
             advertencias.push(advertencia)
           })
           let trTh = document.createElement('tr')
-          trTh.innerHTML += "<th>Data</th>"
           trTh.innerHTML += "<th>Motivo</th>"
+          trTh.innerHTML += "<th>Data</th>"
 
           panel.appendChild(trTh)
 
@@ -227,8 +227,8 @@ getNotas();
             let data = advertencias[i].data
             let motivo = advertencias[i].motivo
 
-            tr.innerHTML += `<td>${data}</td>`
             tr.innerHTML += `<td>${motivo}</td>`
+            tr.innerHTML += `<td>${data}</td>`
 
             panel.appendChild(tr)
           }
