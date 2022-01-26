@@ -142,7 +142,6 @@ body {
   position: absolute;
   width: 40%;
   padding: 15px 20px;
-  height: 30%;
   border-radius: 0.3rem;
   background-color: white;
   display: flex;
@@ -282,10 +281,9 @@ h2#headerEditNotes {
 
 td,
 th {
-  padding: 0.5rem;
+  padding: 0.4rem;
   text-align: left;
   background-color: rgb(230, 230, 230);
-  width: 100%;
   border: 1px solid grey;
   z-index: 9999999;
 }
@@ -338,25 +336,36 @@ button:hover {
   transform: scale(1.04);
 }
 button#confirmNotes {
-  bottom: -21%;
+
+  top: 104%;
+  width: 8rem;
+  height: 3rem;
 }
 
 .inputNotesDiv {
   text-align: center;
   margin-top: 9%;
-}
-input#inputList,
-input#materiasList {
   width: 100%;
 }
-input#advertenciasTextContent{
- width: 100%;
+input#inputList,
+input#materiasList, input#dia, input#alunoAdvertido {
+  width: 100%
+}
+#enviarData{
+  margin: auto;
+}
+textarea{
+  max-width: 100%;
+  min-width: 100%;
+  max-height:90px;
+  min-height: 35px;
+  outline: none;
+  padding: 0.2rem;
 }
 
 input {
   padding: 0.5rem;
   margin-bottom: 2px;
-  text-align: center;
   outline: none;
   border-radius: 0.2rem;
   border: solid 1px grey;

@@ -144,7 +144,7 @@ function atualizar() {
     nota1.value == null ||
     nota2.value == null
   ) {
-    console.log("Erro, por favor verifique os campos e tente novamente!");
+    alert("Erro, por favor verifique os campos e tente novamente!");
   } else {
     db.collection("Alunos")
       .doc(aluno.value)
@@ -270,3 +270,28 @@ editAdvertenciasButton.addEventListener("click", () => {
   let modalEditAdvertencias = document.querySelector("#modalEditAdvertencias");
   modalEditAdvertencias.style.display = "flex";
 });
+
+function inserirAdvertencias(){
+  let aluno = document.querySelector("#alunoAdvertido");
+  let motivo = document.querySelector("#advertenciasTextContent");
+  let dia = document.querySelector('#dia')
+  let data = dia.value
+  let dataFormatada = data.substr(0, 10).split('-').reverse().join('/')
+
+  if(aluno.value == null||motivo.value == ''||data==null){
+    alert("Erro, por favor verifique os campos e tente novamente!")
+  }else{
+    db.collection('Alunos').doc(aluno.value).update({
+      advertencias: firebase.firestore.FieldValue.arrayUnion({
+        motivo: motivo.value,
+        data:dataFormatada,
+      })
+    }).then(()=>{
+      alert("Advertência inserida com sucesso!!!")
+      setTimeout(() => {
+        window.document.location.reload(true);
+      }, 1000)
+    })
+    .catch((err)=>{console.log(err)})
+  }
+}

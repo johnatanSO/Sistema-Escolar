@@ -140,18 +140,20 @@
             <h2 id="headerEditNotes">Adicionar advertência</h2>
             <div class="inputNotesDiv">
               <input
-                id="inputList"
+                id="alunoAdvertido"
                 list="alunos"
                 placeholder="Selecione um aluno..."
               />
               <datalist id="alunos"></datalist>
 
-              <input placeholder="Digite o motivo da advertência..." type="text" name="advertenciasTextContent" id="advertenciasTextContent">
+              <textarea name="advertenciasTextContent" id="advertenciasTextContent" cols="30" rows="10"></textarea>
+
+              <input type="date" name="dia" id="dia">
 
 
               
             </div>
-            <button id="confirmNotes" onclick="atualizar()">Confirmar</button>
+            <button id="confirmNotes" onclick="inserirAdvertencias()">Confirmar</button>
           </div>
         </div>
 
