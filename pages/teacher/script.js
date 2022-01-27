@@ -16,7 +16,14 @@ let auth = firebase.auth();
 
 /* ---------------------------------- */
 
-const materias = ["Português", "Matemática", "Programação", "Física", "Geografia","Química"]
+const materias = [
+  "Português",
+  "Matemática",
+  "Programação",
+  "Física",
+  "Geografia",
+  "Química",
+];
 
 function logOut() {
   auth
@@ -92,12 +99,17 @@ function getNotas() {
 
           name.addEventListener("click", function () {
             this.classList.toggle("active");
-
             var panel = this.nextElementSibling;
+
             if (panel.style.display == "block") {
-              panel.style.display = "none";
+              panel.classList.remove("show")
+              panel.classList.toggle("remove")
+              $(".remove").slideUp(200)
+
             } else {
-              panel.style.display = "block";
+              panel.classList.remove("remove")
+              panel.classList.toggle("show")
+              $(".show").slideDown(200)
             }
           });
         }
@@ -166,7 +178,7 @@ function atualizar() {
                 }),
               })
               .then(() => {
-                console.log("Adicionando notas")
+                console.log("Adicionando notas");
                 db.collection("Alunos")
                   .doc(aluno.value)
                   .update({
@@ -186,7 +198,7 @@ function atualizar() {
               .catch((err) => {
                 console.log(err);
               });
-              return
+            return;
           }
         }
       });
@@ -196,56 +208,63 @@ getNotas();
 
 /* -------------------------------------- advertências ------------------ */
 
- function getAdvertencias() {
+function getAdvertencias() {
   db.collection("Alunos")
     .get()
     .then((snapshot) => {
       snapshot.forEach((element) => {
         if (element.data().ocupacao != "professor") {
-          let contentTableAdvertencias = document.querySelector(".contentTableAdvertencias");
+          let contentTableAdvertencias = document.querySelector(
+            ".contentTableAdvertencias"
+          );
 
           let name = document.createElement("button");
-          name.classList.toggle('accordion')
-          name.innerText = element.data().nome
+          name.classList.toggle("accordion");
+          name.innerText = element.data().nome;
 
-          let panel = document.createElement('div')
-          panel.classList.toggle('panel')
+          let panel = document.createElement("div");
+          panel.classList.toggle("panel");
 
-          let advertencias = []
-          element.data().advertencias.map((advertencia)=>{
-            advertencias.push(advertencia)
-          })
-          let trTh = document.createElement('tr')
-          trTh.innerHTML += "<th>Motivo</th>"
-          trTh.innerHTML += "<th>Data</th>"
+          let advertencias = [];
+          element.data().advertencias.map((advertencia) => {
+            advertencias.push(advertencia);
+          });
+          let trTh = document.createElement("tr");
+          trTh.innerHTML += "<th>Motivo</th>";
+          trTh.innerHTML += "<th>Data</th>";
 
-          panel.appendChild(trTh)
+          panel.appendChild(trTh);
 
-          for(let i = 0; i < advertencias.length; i++){
-            let tr = document.createElement('tr')
+          for (let i = 0; i < advertencias.length; i++) {
+            let tr = document.createElement("tr");
 
-            let data = advertencias[i].data
-            let motivo = advertencias[i].motivo
+            let data = advertencias[i].data;
+            let motivo = advertencias[i].motivo;
 
-            tr.innerHTML += `<td>${motivo}</td>`
-            tr.innerHTML += `<td>${data}</td>`
+            tr.innerHTML += `<td>${motivo}</td>`;
+            tr.innerHTML += `<td>${data}</td>`;
 
-            panel.appendChild(tr)
+            panel.appendChild(tr);
           }
 
-          contentTableAdvertencias.appendChild(name)
-          contentTableAdvertencias.appendChild(panel)
+          contentTableAdvertencias.appendChild(name);
+          contentTableAdvertencias.appendChild(panel);
 
-          name.addEventListener('click', function (){
-            this.classList.toggle('active')
-            
-            var panel = this.nextElementSibling
-            if(panel.style.display == 'block'){
-              panel.style.display = 'none'
-            }else{
-              panel.style.display = 'block'
+          name.addEventListener("click", function () {
+            this.classList.toggle("active");
+
+            var panel = this.nextElementSibling;
+
+            if (panel.style.display == "block") {
+              panel.classList.remove("show")
+              panel.classList.toggle("remove")
+              $(".remove").slideUp(200)
+            } else {
+              panel.classList.remove("remove")
+              panel.classList.toggle("show")
+              $(".show").slideDown(200)
             }
-          })
+          });
         }
       });
       return snapshot;
@@ -263,7 +282,6 @@ getNotas();
 }
 getAdvertencias();
 
-
 /* ------------------------------------EDITAR ADVERTÊNCIAS------------------------------ */
 let editAdvertenciasButton = document.querySelector("#editAdvertencias");
 editAdvertenciasButton.addEventListener("click", () => {
@@ -271,27 +289,40 @@ editAdvertenciasButton.addEventListener("click", () => {
   modalEditAdvertencias.style.display = "flex";
 });
 
-function inserirAdvertencias(){
+function inserirAdvertencias() {
   let aluno = document.querySelector("#alunoAdvertido");
   let motivo = document.querySelector("#advertenciasTextContent");
-  let dia = document.querySelector('#dia')
-  let data = dia.value
-  let dataFormatada = data.substr(0, 10).split('-').reverse().join('/')
+  let dia = document.querySelector("#dia");
+  let data = dia.value;
+  let dataFormatada = data.substr(0, 10).split("-").reverse().join("/");
 
-  if(aluno.value == null||motivo.value == ''||data==null){
-    alert("Erro, por favor verifique os campos e tente novamente!")
-  }else{
-    db.collection('Alunos').doc(aluno.value).update({
-      advertencias: firebase.firestore.FieldValue.arrayUnion({
-        motivo: motivo.value,
-        data:dataFormatada,
+  if (aluno.value == null || motivo.value == "" || data == null) {
+    alert("Erro, por favor verifique os campos e tente novamente!");
+  } else {
+    db.collection("Alunos")
+      .doc(aluno.value)
+      .update({
+        advertencias: firebase.firestore.FieldValue.arrayUnion({
+          motivo: motivo.value,
+          data: dataFormatada,
+        }),
       })
-    }).then(()=>{
-      alert("Advertência inserida com sucesso!!!")
-      setTimeout(() => {
-        window.document.location.reload(true);
-      }, 1000)
-    })
-    .catch((err)=>{console.log(err)})
+      .then(() => {
+        alert("Advertência inserida com sucesso!!!");
+        setTimeout(() => {
+          window.document.location.reload(true);
+        }, 1000);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }
+
+/* ------------------------------ GET FAULTS -------------------------------- */
+
+let buttonFaults = document.querySelector(".faultsContent");
+buttonFaults.addEventListener("click", () => {
+  let modalFaults = document.querySelector(".modalFaults");
+  modalFaults.style.display = "flex";
+});

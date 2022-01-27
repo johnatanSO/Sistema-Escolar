@@ -67,12 +67,13 @@ body {
 .advertence,
 .faults,
 .cadastrarAluno {
-  background-color: rgb(193, 193, 193);
+  background-color: rgb(234, 234, 234);
+  border: 0.4rem solid rgb(193, 193, 193);
   text-align: center;
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  transition: background-color 0.2s, transform 0.2s ease-out;
+  transition: background-color 0.2s, border 0.5s, transform 0.2s ease-out;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -84,61 +85,33 @@ body {
 .advertence:hover,
 .faults:hover,
 .cadastrarAluno:hover {
-  background-color: rgb(255, 65, 65);
+  border: 0.4rem solid red;
   transform: scale(1.05);
 }
-#notasIcon {
-  width: 150px;
-  border-radius: 50%;
+#notasIcon,
+#advertenceIcon,
+#faultsIcon,
+#cadastrarAlunoIcon {
+  width: 66%;
+  border-radius: 0%;
   background-color: rgb(234, 234, 234);
   padding: 0.5rem;
+  object-fit: contain;  
 }
-.notasContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: rgb(69, 69, 69);
-}
-.advertenceContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: rgb(69, 69, 69);
-}
-#advertenceIcon {
-  width: 150px;
-  border-radius: 50%;
-  background-color: rgb(234, 234, 234);
-  padding: 0.5rem;
-}
-.faultsContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: rgb(69, 69, 69);
-}
-#faultsIcon {
-  width: 150px;
-  border-radius: 50%;
-  background-color: rgb(234, 234, 234);
-  padding: 0.5rem;
-}
+.notasContent,
+.advertenceContent,
+.faultsContent,
 .cadastrarAlunoContent {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: rgb(69, 69, 69);
 }
-#faultsIcon {
-  width: 150px;
-  border-radius: 50%;
-  background-color: rgb(234, 234, 234);
-  padding: 0.5rem;
-}
 
 /* MODAL CONTENTs */
 
-#modalEditNotesContent, #modalEditAdvertenciasContent {
+#modalEditNotesContent,
+#modalEditAdvertenciasContent, #modalEditFaultsContent {
   position: absolute;
   width: 40%;
   padding: 15px 20px;
@@ -150,7 +123,8 @@ body {
   animation: scale 0.4s;
   align-items: center;
 }
-#modalEditNotes, #modalEditAdvertencias {
+#modalEditNotes,
+#modalEditAdvertencias, #modalEditFaults {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -164,33 +138,7 @@ body {
   align-items: center;
   animation: appear 0.4s;
 }
-#modalContentMaterias {
-  position: absolute;
-  width: 40%;
-  padding: 15px 20px;
-  height: 30%;
-  border-radius: 0.3rem;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  animation: scale 0.4s;
-  align-items: center;
-}
-#modalMaterias {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.781);
-  z-index: 9999999999;
-  pointer-events: auto;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  animation: appear 0.4s;
-}
+
 #modalContent {
   position: absolute;
   width: 80%;
@@ -206,7 +154,7 @@ body {
 }
 h2#headerNotas,
 h2#headerAdvertencias,
-h2#headerMaterias {
+h2#headerMaterias, h2#headerFaults {
   color: white;
   background-color: red;
   position: absolute;
@@ -218,7 +166,7 @@ h2#headerMaterias {
   padding: 1rem;
   text-align: center;
 }
-h2#headerEditNotes {
+h2#headerEditNotes,h2#headerEditFaults {
   color: white;
   background-color: rgb(255, 0, 0);
   position: absolute;
@@ -264,7 +212,6 @@ h2#headerEditNotes {
 .fechar {
   position: absolute;
   width: 30px;
-  /*top: -10px; */
   text-align: center;
   line-height: 30px;
   background: #ff4545;
@@ -275,6 +222,11 @@ h2#headerEditNotes {
   right: -1%;
   top: -5px;
   align-self: flex-start;
+  transition: 0.2s;
+}
+
+.fechar:hover {
+  transform: scale(110%, 110%);
 }
 
 /* TABLE */
@@ -293,7 +245,8 @@ th {
   z-index: 999999999999999999;
   width: 100%;
 }
-.contentTableNotas, .contentTableAdvertencias {
+.contentTableNotas,
+.contentTableAdvertencias, .contentTableFaults {
   margin-top: 4rem;
   max-height: 85%;
   width: 100%;
@@ -319,7 +272,8 @@ th {
 }
 button#confirmNotes,
 button#editNotes,
-button#editAdvertencias {
+button#editAdvertencias,
+button#editFaults {
   position: absolute;
   bottom: -8%;
   background-color: red;
@@ -336,7 +290,6 @@ button:hover {
   transform: scale(1.04);
 }
 button#confirmNotes {
-
   top: 104%;
   width: 8rem;
   height: 3rem;
@@ -348,16 +301,18 @@ button#confirmNotes {
   width: 100%;
 }
 input#inputList,
-input#materiasList, input#dia, input#alunoAdvertido {
-  width: 100%
+input#materiasList,
+input#dia,
+input#alunoAdvertido {
+  width: 100%;
 }
-#enviarData{
+#enviarData {
   margin: auto;
 }
-textarea{
+textarea {
   max-width: 100%;
   min-width: 100%;
-  max-height:90px;
+  max-height: 90px;
   min-height: 35px;
   outline: none;
   padding: 0.2rem;

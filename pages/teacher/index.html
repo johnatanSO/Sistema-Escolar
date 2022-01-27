@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Área do professor</title>
-    <link rel="shortcut icon" href="../teacher/assets/teacher.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="../teacher/assets/teacher.png"
+      type="image/x-icon"
+    />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -31,25 +36,29 @@
     <div class="buttonsContent">
       <div class="notasContent">
         <div class="notas">
-          <img id="notasIcon" src="./assets/notas.png" alt="" />
+          <img id="notasIcon" src="./assets/notepad.png" alt="" />
         </div>
         <h2>Notas</h2>
       </div>
 
       <div class="advertenceContent">
         <div class="advertence">
-          <img id="advertenceIcon" src="./assets/advertence.png" alt="" />
+          <img id="advertenceIcon" src="./assets/warning.png" alt="" />
         </div>
         <h2>Advertências</h2>
       </div>
 
       <div class="faultsContent">
-        <div class="faults"></div>
+        <div class="faults">
+          <img id="faultsIcon" src="./assets/timetable.png" alt="" />
+        </div>
         <h2>Faltas</h2>
       </div>
 
       <div class="cadastrarAlunoContent">
-        <div class="cadastrarAluno"></div>
+        <div class="cadastrarAluno">
+          <img id="cadastrarAlunoIcon" src="./assets/register.png" alt="" />
+        </div>
         <h2>Cadastrar alunos</h2>
       </div>
     </div>
@@ -62,7 +71,6 @@
         >
         <h2 id="headerNotas">Notas</h2>
         <button id="editNotes">Editar notas</button>
-
 
         <!-- Editar Notas -->
         <div id="modalEditNotes">
@@ -90,7 +98,6 @@
               />
               <datalist id="materias"></datalist>
 
-
               <div class="notasInputEdit">
                 <input
                   placeholder="Nota 1"
@@ -114,10 +121,7 @@
       </div>
     </div>
 
-
-
-
-<!-- --------------------------------------------------- -->
+    <!-- --------------------------------------------------- -->
 
     <!-- Advertências -->
     <div id="modal" class="modal modalAdvertencia">
@@ -146,19 +150,82 @@
               />
               <datalist id="alunos"></datalist>
 
-              <textarea name="advertenciasTextContent" id="advertenciasTextContent" cols="30" rows="10"></textarea>
+              <textarea
+                name="advertenciasTextContent"
+                id="advertenciasTextContent"
+                cols="30"
+                rows="10"
+              ></textarea>
 
-              <input type="date" name="dia" id="dia">
-
-
-              
+              <input type="date" name="dia" id="dia" />
             </div>
-            <button id="confirmNotes" onclick="inserirAdvertencias()">Confirmar</button>
+            <button id="confirmNotes" onclick="inserirAdvertencias()">
+              Confirmar
+            </button>
           </div>
         </div>
 
-
         <div class="contentTableAdvertencias"></div>
+      </div>
+    </div>
+
+
+    <!-- ---------------------------FAULTS---------------- -->
+
+    <div id="modal" class="modal modalFaults">
+      <div id="modalContent">
+        <a onclick="fechar(this)" href="#fechar" title="Fechar" class="fechar"
+          >x</a
+        >
+        <h2 id="headerFaults">Faltas</h2>
+        <button id="editFaults">Editar faltas</button>
+
+        <!-- --------------------EDITAR FALTAS------------------------- -->
+        <div id="modalEditFaults">
+          <div id="modalEditFaultsContent">
+            <a
+              onclick="fechar(this)"
+              href="#fechar"
+              title="Fechar"
+              class="fechar"
+              >x</a
+            >
+            <h2 id="headerEditFaults">Editar faltas</h2>
+            <div class="inputNotesDiv">
+              <input
+                id="inputList"
+                list="alunos"
+                placeholder="Selecione um aluno..."
+              />
+              <datalist id="alunos"></datalist>
+
+              <input
+                id="materiasList"
+                list="materias"
+                placeholder="Selecione uma matéria..."
+              />
+              <datalist id="materias"></datalist>
+
+              <div class="notasInputEdit">
+                <input
+                  placeholder="Nota 1"
+                  type="number"
+                  name="nota1Edit"
+                  id="nota1Edit"
+                />
+                <input
+                  placeholder="Nota 2"
+                  type="number"
+                  name="nota2Edit"
+                  id="nota2Edit"
+                />
+              </div>
+            </div>
+            <button id="confirmFaults" onclick="adicionarFaults()">Confirmar</button>
+          </div>
+        </div>
+
+        <div class="contentTableFaults"></div>
       </div>
     </div>
 
