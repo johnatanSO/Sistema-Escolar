@@ -87,7 +87,18 @@ function getNotas() {
             let nota2 = materias[i].nota2;
             let media = Number((nota1 + nota2) / 2).toFixed(1);
 
-            tr.innerHTML += `<td>${materias[i].materia}</td>`;
+            if(nota1 == undefined || nota1==null){
+              nota1=0
+            }else if(nota2==undefined||nota2==null){
+              nota2 = 0
+              media = 0
+            }
+            if(materias[i].materia==undefined ||materias[i].materia==null){
+              tr.innerHTML += `<td>Sem matéria cadastrada</td>`;
+            }else{
+              tr.innerHTML += `<td>${materias[i].materia}</td>`;
+            }
+            
             tr.innerHTML += `<td>${nota1}</td>`;
             tr.innerHTML += `<td>${nota2}</td>`;
             tr.innerHTML += `<td>${media}</td>`;
@@ -100,6 +111,7 @@ function getNotas() {
           name.addEventListener("click", function () {
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
+            
 
             if (panel.style.display == "block") {
               panel.classList.remove("show")
@@ -326,3 +338,76 @@ buttonFaults.addEventListener("click", () => {
   let modalFaults = document.querySelector(".modalFaults");
   modalFaults.style.display = "flex";
 });
+
+
+
+function getFaults(){
+  db.collection('Alunos')
+    .get()
+    .then((snapshot)=>{
+      snapshot.forEach((element)=>{
+        if(element.data().ocupacao!="professor"){
+          let contentTableFaults = document.querySelector(".contentTableFaults")
+
+          let name = document.createElement("button");
+          name.classList.toggle("accordion");
+          name.innerText = element.data().nome;
+
+          let panel = document.createElement("div");
+          panel.classList.toggle("panel");
+
+          let materias = [];
+          element.data().materias.map((materia) => {
+            materias.push(materia);
+          });
+
+
+          let trTh = document.createElement("tr");
+          trTh.innerHTML += "<th>Matéria</th>";
+          trTh.innerHTML += "<th>Faltas</th>";
+          panel.appendChild(trTh);
+
+
+          for (let i = 0; i < materias.length; i++) {
+            let tr = document.createElement("tr");
+
+            let faults = materias[i].faults;
+            if(faults == undefined || faults==null){
+              faults=0
+            }
+            
+
+            tr.innerHTML += `<td>${materias[i].materia}</td>`;
+            tr.innerHTML += `<td>${faults}</td>`;
+            panel.appendChild(tr);
+          }
+
+
+          contentTableFaults.appendChild(name);
+          contentTableFaults.appendChild(panel);
+
+
+          name.addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            
+
+            if (panel.style.display == "block") {
+              panel.classList.remove("show")
+              panel.classList.toggle("remove")
+              $(".remove").slideUp(200)
+
+            } else {
+              panel.classList.remove("remove")
+              panel.classList.toggle("show")
+              $(".show").slideDown(200)
+            }
+          });
+
+
+        }
+      })
+  })
+}
+
+getFaults()
