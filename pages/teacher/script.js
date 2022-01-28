@@ -87,18 +87,22 @@ function getNotas() {
             let nota2 = materias[i].nota2;
             let media = Number((nota1 + nota2) / 2).toFixed(1);
 
-            if(nota1 == undefined || nota1==null){
-              nota1=0
-            }else if(nota2==undefined||nota2==null){
-              nota2 = 0
-              media = 0
+            if (nota1 == undefined || nota1 == null) {
+              nota1 = 0;
             }
-            if(materias[i].materia==undefined ||materias[i].materia==null){
+            if (nota2 == undefined || nota2 == null) {
+              nota2 = 0;
+              media = 0;
+            }
+            if (
+              materias[i].materia == undefined ||
+              materias[i].materia == null
+            ) {
               tr.innerHTML += `<td>Sem matéria cadastrada</td>`;
-            }else{
+            } else {
               tr.innerHTML += `<td>${materias[i].materia}</td>`;
             }
-            
+
             tr.innerHTML += `<td>${nota1}</td>`;
             tr.innerHTML += `<td>${nota2}</td>`;
             tr.innerHTML += `<td>${media}</td>`;
@@ -111,17 +115,15 @@ function getNotas() {
           name.addEventListener("click", function () {
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
-            
 
             if (panel.style.display == "block") {
-              panel.classList.remove("show")
-              panel.classList.toggle("remove")
-              $(".remove").slideUp(200)
-
+              panel.classList.remove("show");
+              panel.classList.toggle("remove");
+              $(".remove").slideUp(200);
             } else {
-              panel.classList.remove("remove")
-              panel.classList.toggle("show")
-              $(".show").slideDown(200)
+              panel.classList.remove("remove");
+              panel.classList.toggle("show");
+              $(".show").slideDown(200);
             }
           });
         }
@@ -268,28 +270,18 @@ function getAdvertencias() {
             var panel = this.nextElementSibling;
 
             if (panel.style.display == "block") {
-              panel.classList.remove("show")
-              panel.classList.toggle("remove")
-              $(".remove").slideUp(200)
+              panel.classList.remove("show");
+              panel.classList.toggle("remove");
+              $(".remove").slideUp(200);
             } else {
-              panel.classList.remove("remove")
-              panel.classList.toggle("show")
-              $(".show").slideDown(200)
+              panel.classList.remove("remove");
+              panel.classList.toggle("show");
+              $(".show").slideDown(200);
             }
           });
         }
       });
       return snapshot;
-    })
-    .then((snapshot) => {
-      snapshot.forEach((element) => {
-        if (element.data().ocupacao != "professor") {
-          let dataListAlunos = document.getElementById("alunos");
-          let optionAlunos = document.createElement("option");
-          optionAlunos.setAttribute("value", element.data().nome);
-          dataListAlunos.appendChild(optionAlunos);
-        }
-      });
     });
 }
 getAdvertencias();
@@ -339,15 +331,15 @@ buttonFaults.addEventListener("click", () => {
   modalFaults.style.display = "flex";
 });
 
-
-
-function getFaults(){
-  db.collection('Alunos')
+function getFaults() {
+  db.collection("Alunos")
     .get()
-    .then((snapshot)=>{
-      snapshot.forEach((element)=>{
-        if(element.data().ocupacao!="professor"){
-          let contentTableFaults = document.querySelector(".contentTableFaults")
+    .then((snapshot) => {
+      snapshot.forEach((element) => {
+        if (element.data().ocupacao != "professor") {
+          let contentTableFaults = document.querySelector(
+            ".contentTableFaults"
+          );
 
           let name = document.createElement("button");
           name.classList.toggle("accordion");
@@ -357,113 +349,109 @@ function getFaults(){
           panel.classList.toggle("panel");
 
           let faults = [];
+          let materias = [];
           element.data().faltas.map((fault) => {
             faults.push(fault);
           });
-          console.log(faults)
-
 
           let trTh = document.createElement("tr");
           trTh.innerHTML += "<th>Matéria</th>";
           trTh.innerHTML += "<th>Faltas</th>";
           panel.appendChild(trTh);
 
-
           for (let i = 0; i < faults.length; i++) {
             let tr = document.createElement("tr");
 
             let fault = faults[i].faults;
-            if(fault == undefined || fault==null){
-              fault=0
+
+            if (fault == undefined || fault == null) {
+              fault = 0;
             }
-            
 
             tr.innerHTML += `<td>${faults[i].materia}</td>`;
             tr.innerHTML += `<td>${fault}</td>`;
             panel.appendChild(tr);
           }
 
-
           contentTableFaults.appendChild(name);
           contentTableFaults.appendChild(panel);
-
 
           name.addEventListener("click", function () {
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
-            
 
             if (panel.style.display == "block") {
-              panel.classList.remove("show")
-              panel.classList.toggle("remove")
-              $(".remove").slideUp(200)
-
+              panel.classList.remove("show");
+              panel.classList.toggle("remove");
+              $(".remove").slideUp(200);
             } else {
-              panel.classList.remove("remove")
-              panel.classList.toggle("show")
-              $(".show").slideDown(200)
+              panel.classList.remove("remove");
+              panel.classList.toggle("show");
+              $(".show").slideDown(200);
             }
           });
-
-
         }
-      })
-      return snapshot
-  })
-  .then((snapshot)=>{
-    snapshot.forEach((element)=>{
-      if(element.data().ocupacao != "professor"){
-        let dataListAlunos = document.getElementById("alunos")
-        let optionAlunos = document.createElement("option")
-
-        optionAlunos.setAttribute("value", element.data().nome)
-        dataListAlunos.appendChild(optionAlunos)
-      }
-    })
-    for(let i = 0; i < materias.length; i++){
-      let dataListMaterias = document.getElementById("materias")
-      let optionMaterias = document.createElement('option')
-      optionMaterias.setAttribute('value', materias[i])
-      dataListMaterias.appendChild(optionMaterias)
-    }
-  })
+      });
+      return snapshot;
+    });
 }
 
+let editFaultsButton = document.querySelector("#editFaults");
+editFaultsButton.addEventListener("click", () => {
+  let modalEditFaults = document.querySelector("#modalEditFaults");
+  modalEditFaults.style.display = "flex";
+});
 
-let editFaultsButton = document.querySelector('#editFaults')
-editFaultsButton.addEventListener('click', ()=>{
-  let modalEditFaults = document.querySelector("#modalEditFaults")
-  modalEditFaults.style.display = 'flex'
-})
+function adicionarFaults() {
+  let alunoFault = document.querySelector("#alunoFault");
+  let materiasSelect = document.querySelector("#materiasListFault");
+  let qtdFault = document.querySelector("#faults");
 
-
-function adicionarFaults(){
-  let alunoFault = document.querySelector("#alunoFault")
-  let materiasSelect = document.querySelector("#materiasListFault")
-  let fault = document.querySelector("#fault")
-
-
-  db.collection('Alunos').doc(alunoFault.value)
+  db.collection("Alunos")
+    .doc(alunoFault.value)
     .get()
-    .then((element)=>{
-      let materias = [];
-        element.data().materias.map((materia) => {
-          materias.push(materia);
-        });
-      
-        for(let i = 0; i<element.data().materias.length; i++){
-          if (materiasSelect.value == materias[i].materia){
-            db.collection('Alunos')
-              .doc(alunoFault.value)
-              
-          }
+    .then((element) => {
+      let faults = [];
+      element.data().faltas.map((fault) => {
+        faults.push(fault);
+      });
+
+      for (let i = 0; i < element.data().faltas.length; i++) {
+        if (materiasSelect.value == faults[i].materia) {
+          let fault = faults[i].faults;
+
+          db.collection("Alunos")
+            .doc(alunoFault.value)
+            .update({
+              faltas: firebase.firestore.FieldValue.arrayRemove({
+                materia: materiasSelect.value,
+                faults: fault,
+              }),
+            })
+             .then(() => {
+              console.log("adicionando faltas!");
+              db.collection("Alunos")
+                .doc(alunoFault.value)
+                .update({
+                  faltas: firebase.firestore.FieldValue.arrayUnion({
+                    materia: materiasSelect.value,
+                    faults: Number(qtdFault.value),
+                  }),
+                });
+            }) 
+            .then(() => {
+              console.log("sucess!");
+              setTimeout(() => {
+                window.document.location.reload(true);
+              }, 2000);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+          return;
         }
-    })
-
-
-
+      }
+    });
 }
 
-
-
-getFaults()
+getFaults();

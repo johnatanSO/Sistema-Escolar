@@ -21,6 +21,10 @@ body {
   cursor: pointer;
   border: 2px solid rgb(255, 0, 0);
   color: rgb(255, 255, 255);
+  transition: transform 0.2s ease-out
+}
+.logOut:hover{
+  transform: scale(1.05);
 }
 .perfilContent {
   display: flex;
@@ -222,11 +226,11 @@ h2#headerEditNotes,h2#headerEditFaults {
   right: -1%;
   top: -5px;
   align-self: flex-start;
-  transition: 0.2s;
+  transition: transform 0.2s ease-out
 }
 
 .fechar:hover {
-  transform: scale(110%, 110%);
+  transform: scale(1.05);
 }
 
 /* TABLE */
@@ -287,7 +291,7 @@ button#editFaults,button#confirmFaults {
   box-shadow: 2px 2px 5px rgba(145, 48, 48, 0.489);
 }
 button:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 button#confirmNotes, button#confirmFaults {
   top: 104%;
@@ -304,7 +308,7 @@ button#confirmNotes, button#confirmFaults {
 input#inputList,
 input#materiasList,
 input#dia,
-input#alunoAdvertido, input#faults, input#alunoFault, input#materiasListFault {
+input#alunoAdvertido,input#nota1Edit,input#nota2Edit, input#faults, input#alunoFault, input#materiasListFault {
   width: 100%;
   text-align: center;
 }
@@ -329,6 +333,7 @@ input {
 }
 .notasInputEdit {
   display: flex;
+
 }
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
