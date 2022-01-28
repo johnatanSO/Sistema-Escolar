@@ -356,10 +356,11 @@ function getFaults(){
           let panel = document.createElement("div");
           panel.classList.toggle("panel");
 
-          let materias = [];
-          element.data().materias.map((materia) => {
-            materias.push(materia);
+          let faults = [];
+          element.data().faltas.map((fault) => {
+            faults.push(fault);
           });
+          console.log(faults)
 
 
           let trTh = document.createElement("tr");
@@ -368,17 +369,17 @@ function getFaults(){
           panel.appendChild(trTh);
 
 
-          for (let i = 0; i < materias.length; i++) {
+          for (let i = 0; i < faults.length; i++) {
             let tr = document.createElement("tr");
 
-            let faults = materias[i].faults;
-            if(faults == undefined || faults==null){
-              faults=0
+            let fault = faults[i].faults;
+            if(fault == undefined || fault==null){
+              fault=0
             }
             
 
-            tr.innerHTML += `<td>${materias[i].materia}</td>`;
-            tr.innerHTML += `<td>${faults}</td>`;
+            tr.innerHTML += `<td>${faults[i].materia}</td>`;
+            tr.innerHTML += `<td>${fault}</td>`;
             panel.appendChild(tr);
           }
 
@@ -407,7 +408,62 @@ function getFaults(){
 
         }
       })
+      return snapshot
+  })
+  .then((snapshot)=>{
+    snapshot.forEach((element)=>{
+      if(element.data().ocupacao != "professor"){
+        let dataListAlunos = document.getElementById("alunos")
+        let optionAlunos = document.createElement("option")
+
+        optionAlunos.setAttribute("value", element.data().nome)
+        dataListAlunos.appendChild(optionAlunos)
+      }
+    })
+    for(let i = 0; i < materias.length; i++){
+      let dataListMaterias = document.getElementById("materias")
+      let optionMaterias = document.createElement('option')
+      optionMaterias.setAttribute('value', materias[i])
+      dataListMaterias.appendChild(optionMaterias)
+    }
   })
 }
+
+
+let editFaultsButton = document.querySelector('#editFaults')
+editFaultsButton.addEventListener('click', ()=>{
+  let modalEditFaults = document.querySelector("#modalEditFaults")
+  modalEditFaults.style.display = 'flex'
+})
+
+
+function adicionarFaults(){
+  let alunoFault = document.querySelector("#alunoFault")
+  let materiasSelect = document.querySelector("#materiasListFault")
+  let fault = document.querySelector("#fault")
+
+
+  db.collection('Alunos').doc(alunoFault.value)
+    .get()
+    .then((element)=>{
+      let materias = [];
+        element.data().materias.map((materia) => {
+          materias.push(materia);
+        });
+      
+        for(let i = 0; i<element.data().materias.length; i++){
+          if (materiasSelect.value == materias[i].materia){
+            db.collection('Alunos')
+              .doc(alunoFault.value)
+              
+          }
+        }
+    })
+
+
+
+}
+
+
 
 getFaults()

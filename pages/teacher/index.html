@@ -193,33 +193,20 @@
             <h2 id="headerEditFaults">Editar faltas</h2>
             <div class="inputNotesDiv">
               <input
-                id="inputList"
+                id="alunoFault"
                 list="alunos"
                 placeholder="Selecione um aluno..."
               />
               <datalist id="alunos"></datalist>
 
               <input
-                id="materiasList"
+                id="materiasListFault"
                 list="materias"
                 placeholder="Selecione uma matéria..."
               />
               <datalist id="materias"></datalist>
 
-              <div class="notasInputEdit">
-                <input
-                  placeholder="Nota 1"
-                  type="number"
-                  name="nota1Edit"
-                  id="nota1Edit"
-                />
-                <input
-                  placeholder="Nota 2"
-                  type="number"
-                  name="nota2Edit"
-                  id="nota2Edit"
-                />
-              </div>
+              <input placeholder="Quantidade de faltas..." type="number" name="faults" id="faults">
             </div>
             <button id="confirmFaults" onclick="adicionarFaults()">Confirmar</button>
           </div>

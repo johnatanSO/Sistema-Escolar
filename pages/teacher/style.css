@@ -273,7 +273,7 @@ th {
 button#confirmNotes,
 button#editNotes,
 button#editAdvertencias,
-button#editFaults {
+button#editFaults,button#confirmFaults {
   position: absolute;
   bottom: -8%;
   background-color: red;
@@ -289,7 +289,7 @@ button#editFaults {
 button:hover {
   transform: scale(1.04);
 }
-button#confirmNotes {
+button#confirmNotes, button#confirmFaults {
   top: 104%;
   width: 8rem;
   height: 3rem;
@@ -300,11 +300,13 @@ button#confirmNotes {
   margin-top: 9%;
   width: 100%;
 }
+
 input#inputList,
 input#materiasList,
 input#dia,
-input#alunoAdvertido {
+input#alunoAdvertido, input#faults, input#alunoFault, input#materiasListFault {
   width: 100%;
+  text-align: center;
 }
 #enviarData {
   margin: auto;
