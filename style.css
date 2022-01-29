@@ -5,7 +5,8 @@
     font-family: 'Roboto', sans-serif;
 }
 body{
-    background-color: rgb(245, 245, 245);
+    background-color: #cd1414;
+    background: linear-gradient(to right,#cd1414,#540707);
 }
 h2{
     margin-top: 2rem;
@@ -18,9 +19,9 @@ h2{
     top: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    background-color: rgb(225, 225, 225);
+    background-color: #e8e8e8;
     border-radius: 0.3rem;
-    box-shadow: 0 15px 20px 0 rgba(183, 183, 183, 0.201);
+    box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.167);
     
     /* FLEX-BOX */
     display: flex;
@@ -39,12 +40,12 @@ input{
     border: none;
     border-bottom: 1px solid rgb(0, 0, 0);
     outline: none;
-    background-color: rgb(225, 225, 225);
+    background-color: #e8e8e8;
     font-size: 1rem;
 }
 
 input[type="button"]{
-    background-color: rgb(234, 0, 0);
+    background-color: #F01a1a;
     border: none;
     color: white;
     cursor: pointer;
@@ -56,7 +57,10 @@ input[type="button"]{
 }
 
 input[type="button"]:hover{
-    background-color: rgb(255, 0, 0);;
+    background-color: #F34141
+}
+input[type="button"]:active{
+    background-color: #F01a1a;
 }
 
 .inputs{
@@ -67,4 +71,5 @@ input[type="button"]:hover{
     margin-top: 3rem
 }
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px rgb(225, 225, 225) inset;}
+    -webkit-box-shadow: 0 0 0 30px #e8e8e8 inset;
+}
