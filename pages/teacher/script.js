@@ -12,6 +12,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 let auth = firebase.auth();
 
+
 /* -----------------------acordion----------------- */
 
 /* ---------------------------------- */
@@ -455,3 +456,42 @@ function adicionarFaults() {
 }
 
 getFaults();
+
+/* ----------------------REGISTER STUDENT------------------ */
+
+let buttonRegister = document.querySelector(".cadastrarAlunoContent");
+buttonRegister.addEventListener("click", () => {
+  let modalRegisterStudent = document.querySelector("#modalRegisterStudent");
+  modalRegisterStudent.style.display = "flex";
+});
+
+function registerStudent(){
+  let emailStudent = document.querySelector('#alunoEmail')
+  let nomeStudent = document.querySelector('#alunoNome')
+  let senhaStudent = document.querySelector('#senhaAluno')
+
+  auth.createUserWithEmailAndPassword(emailStudent.value, senhaStudent.value)
+  .then(()=>{
+    auth.signInWithEmailAndPassword('professor@testeprofessor.com', 'professor123').then(()=>{
+      db.collection('Alunos').doc(nomeStudent.value).set({
+      nome: nomeStudent.value,
+      email: emailStudent.value,
+      advertencias: [
+        {
+          data: null,
+          motivo: null,
+        }
+      ],
+      faltas: [
+        {materia: "Português", faults: null}, {materia: "Matemática", faults: null},{materia: "Programação", faults: null},{materia: "Química", faults: null},{materia: "Física", faults: null},{materia: "Geografia", faults: null},
+      ],
+      materias: [
+        {materia: "Português", nota1: null, nota2: null},{materia: "Matemática", nota1: null, nota2: null},{materia: "Programação", nota1: null, nota2: null},{materia: "Química", nota1: null, nota2: null},{materia: "Física", nota1: null, nota2: null},{materia: "Geografia", nota1: null, nota2: null},
+      ],
+    })
+    })
+    
+  }) 
+
+
+}

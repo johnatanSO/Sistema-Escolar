@@ -7,20 +7,21 @@
  
 body {
   display: flex;
-  justify-content: flex-end;
-  margin: 1rem;
   background-color: #f6f6f6;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='762' height='762' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23EBEBEB' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23EAEAEA'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .logOut {
   background-color: #F01A1A;
+  margin: 1rem;
   width: 80px;
   border-radius: 0.3rem;
   text-align: center;
   padding: 0.6rem;
   font-weight: 500;
   cursor: pointer;
+  position: absolute;
+  right: 0;
   border: none;
   color: rgb(255, 255, 255);
   transition: transform 0.2s ease-out, background-color 0.2s ease-out
@@ -120,7 +121,7 @@ body {
 /* MODAL CONTENTs */
 
 #modalEditNotesContent,
-#modalEditAdvertenciasContent, #modalEditFaultsContent {
+#modalEditAdvertenciasContent, #modalEditFaultsContent,#modalRegisterStudentContent {
   position: absolute;
   width: 40%;
   padding: 15px 20px;
@@ -133,7 +134,7 @@ body {
   align-items: center;
 }
 #modalEditNotes,
-#modalEditAdvertencias, #modalEditFaults {
+#modalEditAdvertencias, #modalEditFaults, #modalRegisterStudent {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -159,7 +160,6 @@ body {
   justify-content: center;
   align-items: flex-start;
   animation: scale 0.4s;
-  /* overflow: auto; */
 }
 h2#headerNotas,
 h2#headerAdvertencias,
@@ -175,7 +175,7 @@ h2#headerMaterias, h2#headerFaults {
   padding: 1rem;
   text-align: center;
 }
-h2#headerEditNotes,h2#headerEditFaults {
+h2#headerEditNotes,h2#headerEditFaults, h2#headerRegisterStudent {
   color: white;
   background-color: #F01a1a;
   position: absolute;
@@ -282,7 +282,7 @@ th {
 button#confirmNotes,
 button#editNotes,
 button#editAdvertencias,
-button#editFaults,button#confirmFaults {
+button#editFaults,button#confirmFaults, button#registerStudent {
   position: absolute;
   bottom: -8%;
   background-color: #F01a1a;
@@ -298,16 +298,21 @@ button#editFaults,button#confirmFaults {
 button:hover {
   transform: scale(1.03);
 }
-button#confirmNotes, button#confirmFaults {
+button#confirmNotes, button#confirmFaults, button#registerStudent {
   top: 104%;
   width: 8rem;
   height: 3rem;
 }
 
-.inputNotesDiv {
+.inputNotesDiv, .inputDataStudent {
   text-align: center;
   margin-top: 9%;
   width: 100%;
+}
+
+.inputDataStudent{
+  padding: 1rem;
+
 }
 
 input#inputList,
@@ -316,6 +321,9 @@ input#dia,
 input#alunoAdvertido,input#nota1Edit,input#nota2Edit, input#faults, input#alunoFault, input#materiasListFault {
   width: 100%;
   text-align: center;
+}
+input#alunoNome, input#senhaAluno, input#alunoEmail{
+  width: 100%;
 }
 #enviarData {
   margin: auto;
@@ -380,4 +388,10 @@ input[type="button"]:hover {
   padding: 0 18px;
   background-color: white;
   display: none;
+}
+
+p{
+  color: grey;
+  font-size: 0.8rem;
+  margin-top: 5%;
 }
