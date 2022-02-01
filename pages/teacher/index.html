@@ -169,7 +169,6 @@
       </div>
     </div>
 
-
     <!-- ---------------------------FAULTS---------------- -->
 
     <div id="modal" class="modal modalFaults">
@@ -206,9 +205,16 @@
               />
               <datalist id="materias"></datalist>
 
-              <input placeholder="Quantidade de faltas..." type="number" name="faults" id="faults">
+              <input
+                placeholder="Quantidade de faltas..."
+                type="number"
+                name="faults"
+                id="faults"
+              />
             </div>
-            <button id="confirmFaults" onclick="adicionarFaults()">Confirmar</button>
+            <button id="confirmFaults" onclick="adicionarFaults()">
+              Confirmar
+            </button>
           </div>
         </div>
 
@@ -216,40 +222,36 @@
       </div>
     </div>
 
-<!-- ------------------------REGISTER STUDENT----------------------- -->
-
-  
+    <!-- ------------------------REGISTER STUDENT----------------------- -->
 
     <div id="modalRegisterStudent">
       <div id="modalRegisterStudentContent">
-        <a
-          onclick="fechar(this)"
-          href="#fechar"
-          title="Fechar"
-          class="fechar"
+        <a onclick="fechar(this)" href="#fechar" title="Fechar" class="fechar"
           >x</a
         >
         <h2 id="headerRegisterStudent">Cadastrar aluno</h2>
         <div class="inputDataStudent">
+          <input id="alunoEmail" placeholder="E-mail..." />
+          <input id="alunoNome" placeholder="Nome..." />
           <input
-            id="alunoEmail"
-            placeholder="E-mail..."
+            placeholder="Senha..."
+            type="password"
+            name="senha"
+            id="senhaAluno"
           />
-          <input
-            id="alunoNome"
-            placeholder="Nome..."
-          />
-          <input placeholder="Senha..." type="password" name="senha" id="senhaAluno">
 
-          <p>Obs: Após cadasdtrar o aluno, vá para as as outras abas para editar as notas, advertências e faltas.</p>
+          <p>
+            Obs: Após cadasdtrar o aluno, vá para as as outras abas para editar
+            as notas, advertências e faltas.
+          </p>
         </div>
-        <button id="registerStudent" onclick="registerStudent()">Confirmar</button>
+        <button id="registerStudent" onclick="registerStudent()">
+          Confirmar
+        </button>
       </div>
     </div>
 
     <div class="contentTableFaults"></div>
-  
-
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
