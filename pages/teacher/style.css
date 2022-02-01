@@ -395,3 +395,24 @@ p{
   font-size: 0.8rem;
   margin-top: 5%;
 }
+
+.c-loader {
+  animation: is-rotating 1s infinite;
+  border: 6px solid #e5e5e5;
+  border-radius: 50%;
+  border-top-color: #ff3700;
+  height: 50px;
+  width: 50px;  
+  display: none;
+  position: absolute;
+  
+}
+#cLoaderN{bottom: -80%}
+#cLoaderA{bottom: -60%}
+#cLoaderF{bottom: -80%}
+#cLoaderR{bottom: -55%}
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}

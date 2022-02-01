@@ -166,9 +166,11 @@ function atualizar() {
     nota1.value < 0 ||
     nota1.value > 10 ||
     nota2.value < 0 ||
-    nota2 > 0 ||
+    nota2.value > 10 ||
     nota1.value == null ||
-    nota2.value == null
+    nota2.value == null ||
+    nota1.value == "" ||
+    nota2.value == ""
   ) {
     alert("Erro, por favor verifique os campos e tente novamente!");
   } else {
@@ -176,6 +178,8 @@ function atualizar() {
       .doc(aluno.value)
       .get()
       .then((element) => {
+        let loader = document.querySelector("#cLoaderN");
+        loader.style.display = "block";
         let materias = [];
         element.data().materias.map((materia) => {
           materias.push(materia);
@@ -303,6 +307,8 @@ function inserirAdvertencias() {
   if (aluno.value == null || motivo.value == "" || data == null) {
     alert("Erro, por favor verifique os campos e tente novamente!");
   } else {
+    let loader = document.querySelector("#cLoaderA");
+    loader.style.display = "block";
     db.collection("Alunos")
       .doc(aluno.value)
       .update({
@@ -312,7 +318,6 @@ function inserirAdvertencias() {
         }),
       })
       .then(() => {
-        alert("Advertência inserida com sucesso!!!");
         setTimeout(() => {
           window.document.location.reload(true);
         }, 1000);
@@ -407,10 +412,14 @@ function adicionarFaults() {
   let materiasSelect = document.querySelector("#materiasListFault");
   let qtdFault = document.querySelector("#faults");
 
+  console.log("foi");
+
   db.collection("Alunos")
     .doc(alunoFault.value)
     .get()
     .then((element) => {
+      let loader = document.querySelector("#cLoaderF");
+      loader.style.display = "block";
       let faults = [];
       element.data().faltas.map((fault) => {
         faults.push(fault);
@@ -472,6 +481,8 @@ function registerStudent() {
   auth
     .createUserWithEmailAndPassword(emailStudent.value, senhaStudent.value)
     .then(() => {
+      let loader = document.querySelector("#cLoaderR");
+      loader.style.display = "block";
       auth
         .signInWithEmailAndPassword(
           "professor@testeprofessor.com",
