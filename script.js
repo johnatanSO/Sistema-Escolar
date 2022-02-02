@@ -37,9 +37,17 @@ function validateUser(doc){
 function login() {
     auth.signInWithEmailAndPassword(email.value, senha.value)
         .then(()=>{
+            console.log('entrei')
             db.collection("Alunos").get()
                 .then(snapshot=>{
-                    snapshot.forEach(validateUser)
+                    console.log('entrei no db')
+                    console.log(auth.currentUser.email)
+                    snapshot.forEach((element)=>{
+                        if(element.data().email == auth.currentUser.email){
+                            console.log('bateu')
+                        }
+                    })
+                     snapshot.forEach(validateUser) 
                 })
         })
     .catch(err=>{
