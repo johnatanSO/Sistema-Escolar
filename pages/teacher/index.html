@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Área do professor</title>
-    <link rel="shortcut icon" href="../teacher/assets/teacher.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="../teacher/assets/teacher.png"
+      type="image/x-icon"
+    />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -31,25 +36,29 @@
     <div class="buttonsContent">
       <div class="notasContent">
         <div class="notas">
-          <img id="notasIcon" src="./assets/notas.png" alt="" />
+          <img id="notasIcon" src="./assets/notepad.png" alt="" />
         </div>
         <h2>Notas</h2>
       </div>
 
       <div class="advertenceContent">
         <div class="advertence">
-          <img id="advertenceIcon" src="./assets/advertence.png" alt="" />
+          <img id="advertenceIcon" src="./assets/warning.png" alt="" />
         </div>
         <h2>Advertências</h2>
       </div>
 
       <div class="faultsContent">
-        <div class="faults"></div>
+        <div class="faults">
+          <img id="faultsIcon" src="./assets/timetable.png" alt="" />
+        </div>
         <h2>Faltas</h2>
       </div>
 
       <div class="cadastrarAlunoContent">
-        <div class="cadastrarAluno"></div>
+        <div class="cadastrarAluno">
+          <img id="cadastrarAlunoIcon" src="./assets/register.png" alt="" />
+        </div>
         <h2>Cadastrar alunos</h2>
       </div>
     </div>
@@ -62,7 +71,6 @@
         >
         <h2 id="headerNotas">Notas</h2>
         <button id="editNotes">Editar notas</button>
-
 
         <!-- Editar Notas -->
         <div id="modalEditNotes">
@@ -90,7 +98,6 @@
               />
               <datalist id="materias"></datalist>
 
-
               <div class="notasInputEdit">
                 <input
                   placeholder="Nota 1"
@@ -107,12 +114,15 @@
               </div>
             </div>
             <button id="confirmNotes" onclick="atualizar()">Confirmar</button>
+            <div id="cLoaderN" class="c-loader"></div>
           </div>
         </div>
 
-        <div class="contentTable"></div>
+        <div class="contentTableNotas"></div>
       </div>
     </div>
+
+    <!-- --------------------------------------------------- -->
 
     <!-- Advertências -->
     <div id="modal" class="modal modalAdvertencia">
@@ -123,16 +133,130 @@
         <h2 id="headerAdvertencias">Advertências</h2>
         <button id="editAdvertencias">Adicionar advertência</button>
 
-        <div class="contentTable">
-          <table id="tableAdvertencias">
-            <tr>
-              <th>Nome</th>
-              <th>Quantidade de advertências</th>
-            </tr>
-          </table>
+        <div id="modalEditAdvertencias">
+          <div id="modalEditAdvertenciasContent">
+            <a
+              onclick="fechar(this)"
+              href="#fechar"
+              title="Fechar"
+              class="fechar"
+              >x</a
+            >
+            <h2 id="headerEditNotes">Adicionar advertência</h2>
+            <div class="inputNotesDiv">
+              <input
+                id="alunoAdvertido"
+                list="alunos"
+                placeholder="Selecione um aluno..."
+              />
+              <datalist id="alunos"></datalist>
+
+              <textarea
+                name="advertenciasTextContent"
+                id="advertenciasTextContent"
+                cols="30"
+                rows="10"
+              ></textarea>
+
+              <input type="date" name="dia" id="dia" />
+            </div>
+            <button id="confirmNotes" onclick="inserirAdvertencias()">
+              Confirmar
+            </button>
+            <div id="cLoaderA" class="c-loader"></div>
+          </div>
         </div>
+
+        <div class="contentTableAdvertencias"></div>
       </div>
     </div>
+
+    <!-- ---------------------------FAULTS---------------- -->
+
+    <div id="modal" class="modal modalFaults">
+      <div id="modalContent">
+        <a onclick="fechar(this)" href="#fechar" title="Fechar" class="fechar"
+          >x</a
+        >
+        <h2 id="headerFaults">Faltas</h2>
+        <button id="editFaults">Editar faltas</button>
+
+        <!-- --------------------EDITAR FALTAS------------------------- -->
+        <div id="modalEditFaults">
+          <div id="modalEditFaultsContent">
+            <a
+              onclick="fechar(this)"
+              href="#fechar"
+              title="Fechar"
+              class="fechar"
+              >x</a
+            >
+            <h2 id="headerEditFaults">Editar faltas</h2>
+            <div class="inputNotesDiv">
+              <input
+                id="alunoFault"
+                list="alunos"
+                placeholder="Selecione um aluno..."
+              />
+              <datalist id="alunos"></datalist>
+
+              <input
+                id="materiasListFault"
+                list="materias"
+                placeholder="Selecione uma matéria..."
+              />
+              <datalist id="materias"></datalist>
+
+              <input
+                placeholder="Quantidade de faltas..."
+                type="number"
+                name="faults"
+                id="faults"
+              />
+            </div>
+            <button id="confirmFaults" onclick="adicionarFaults()">
+              Confirmar
+            </button>
+            <div id="cLoaderF" class="c-loader"></div>
+          </div>
+        </div>
+
+        <div class="contentTableFaults"></div>
+      </div>
+    </div>
+
+    <!-- ------------------------REGISTER STUDENT----------------------- -->
+
+    <div id="modalRegisterStudent">
+      <div id="modalRegisterStudentContent">
+        <a onclick="fechar(this)" href="#fechar" title="Fechar" class="fechar"
+          >x</a
+        >
+        <h2 id="headerRegisterStudent">Cadastrar aluno</h2>
+        <div class="inputDataStudent">
+          <input id="alunoEmail" placeholder="E-mail..." />
+          <input id="alunoNome" placeholder="Nome..." />
+          <input
+            placeholder="Senha..."
+            type="password"
+            name="senha"
+            id="senhaAluno"
+          />
+
+          <p>
+            Obs: Após cadastrar o aluno, vá para as outras abas para editar
+            notas, advertências e faltas.
+          </p>
+        </div>
+
+        <button id="registerStudent" onclick="registerStudent()">
+          Confirmar
+        </button>
+        <div id="cLoaderR" class="c-loader"></div>
+      </div>
+    </div>
+
+    <div class="contentTableFaults"></div>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>

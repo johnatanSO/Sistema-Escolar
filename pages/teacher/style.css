@@ -1,0 +1,421 @@
+<<<<<<< HEAD
+=======
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: roboto, "sans-serif";
+}
+ 
+body {
+  display: flex;
+  background-color: #f6f6f6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='762' height='762' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23EBEBEB' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23EAEAEA'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.logOut {
+  background-color: #F01A1A;
+  margin: 1rem;
+  width: 80px;
+  border-radius: 0.3rem;
+  text-align: center;
+  padding: 0.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  border: none;
+  color: rgb(255, 255, 255);
+  transition: transform 0.2s ease-out, background-color 0.2s ease-out
+}
+.logOut:hover{
+  transform: scale(1.03);
+  background-color: #F34141;
+}
+.perfilContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: auto;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -100%);
+  color: rgb(69, 69, 69);
+}
+
+.perfil {
+  background-color: rgb(193, 193, 193);
+  padding: 5rem;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.146);
+  background-color: #CD1414
+}
+#iconPerfil {
+  width: 180px;
+  border-radius: 50%;
+  background-color: rgb(234, 234, 234);
+  padding: 0.5rem;
+}
+.buttonsContent {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(255, 0, 0, 0);
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  top: 60%;
+}
+
+.notas,
+.advertence,
+.faults,
+.cadastrarAluno {
+  background-color: rgb(234, 234, 234);
+  border: 0.4rem solid rgb(193, 193, 193);
+  text-align: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  transition: background-color 0.2s, border 0.5s, transform 0.2s ease-out;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.146);
+}
+.notas:hover,
+.advertence:hover,
+.faults:hover,
+.cadastrarAluno:hover {
+  border: 0.4rem solid #CD1414;
+  transform: scale(1.05);
+}
+#notasIcon,
+#advertenceIcon,
+#faultsIcon,
+#cadastrarAlunoIcon {
+  width: 66%;
+  border-radius: 0%;
+  background-color: rgb(234, 234, 234);
+  padding: 0.5rem;
+  object-fit: contain;  
+}
+
+.notasContent,
+.advertenceContent,
+.faultsContent,
+.cadastrarAlunoContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(69, 69, 69);
+}
+
+/* MODAL CONTENTs */
+
+#modalEditNotesContent,
+#modalEditAdvertenciasContent, #modalEditFaultsContent,#modalRegisterStudentContent {
+  position: absolute;
+  width: 40%;
+  padding: 15px 20px;
+  border-radius: 0.3rem;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  animation: scale 0.4s;
+  align-items: center;
+}
+#modalEditNotes,
+#modalEditAdvertencias, #modalEditFaults, #modalRegisterStudent {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.781);
+  z-index: 9999999999;
+  pointer-events: auto;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: appear 0.4s;
+}
+
+#modalContent {
+  position: absolute;
+  width: 80%;
+  padding: 15px 20px;
+  height: 80%;
+  border-radius: 0.3rem;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: scale 0.4s;
+}
+h2#headerNotas,
+h2#headerAdvertencias,
+h2#headerMaterias, h2#headerFaults {
+  color: white;
+  background-color: #F01a1a;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  right: 0;
+  left: 0;
+  border-radius: 0.3rem 0.3rem 0rem 0rem;
+  padding: 1rem;
+  text-align: center;
+}
+h2#headerEditNotes,h2#headerEditFaults, h2#headerRegisterStudent {
+  color: white;
+  background-color: #F01a1a;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  right: 0;
+  left: 0;
+  border-radius: 0.2rem 0.2rem 0rem 0rem;
+  padding: 0.6rem;
+  font-size: 1rem;
+  text-align: center;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.781);
+  z-index: 99999;
+  pointer-events: auto;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: appear 0.4s;
+}
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fechar {
+  position: absolute;
+  width: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #ff4545;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #8d0000;
+  z-index: 9999999999;
+  right: -1%;
+  top: -5px;
+  align-self: flex-start;
+  transition: transform 0.2s ease-out
+}
+
+.fechar:hover {
+  transform: scale(1.05);
+}
+
+/* TABLE */
+
+td,
+th {
+  padding: 0.4rem;
+  text-align: left;
+  background-color: rgb(230, 230, 230);
+  border: 1px solid grey;
+  z-index: 9999999;
+}
+th {
+  background-color: rgb(177, 177, 177);
+  color: rgb(62, 62, 62);
+  z-index: 999999999999999999;
+  width: 100%;
+}
+.contentTableNotas,
+.contentTableAdvertencias, .contentTableFaults {
+  margin-top: 4rem;
+  max-height: 85%;
+  width: 100%;
+  padding: 0rem 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 800px) {
+  .inputNotesDiv {
+    max-width: 50%;
+  }
+  .notasInputEdit {
+    flex-direction: column;
+  }
+}
+@media screen and (max-height: 500px) {
+  .contentTable {
+    max-height: 60%;
+  }
+  button {
+    margin-top: 100%;
+  }
+}
+button#confirmNotes,
+button#editNotes,
+button#editAdvertencias,
+button#editFaults,button#confirmFaults, button#registerStudent {
+  position: absolute;
+  bottom: -8%;
+  background-color: #F01a1a;
+  padding: 0.6rem;
+  border-radius: 0.2rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  width: 40%;
+  box-shadow: 2px 2px 5px rgba(145, 48, 48, 0.379);
+}
+button:hover {
+  transform: scale(1.03);
+}
+button#confirmNotes, button#confirmFaults, button#registerStudent {
+  top: 104%;
+  width: 8rem;
+  height: 3rem;
+}
+
+.inputNotesDiv, .inputDataStudent {
+  text-align: center;
+  margin-top: 9%;
+  width: 100%;
+}
+
+.inputDataStudent{
+  padding: 1rem;
+
+}
+
+input#inputList,
+input#materiasList,
+input#dia,
+input#alunoAdvertido,input#nota1Edit,input#nota2Edit, input#faults, input#alunoFault, input#materiasListFault {
+  width: 100%;
+  text-align: center;
+}
+input#alunoNome, input#senhaAluno, input#alunoEmail{
+  width: 100%;
+}
+#enviarData {
+  margin: auto;
+}
+textarea {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 90px;
+  min-height: 35px;
+  outline: none;
+  padding: 0.2rem;
+}
+
+input {
+  padding: 0.5rem;
+  margin-bottom: 2px;
+  outline: none;
+  border-radius: 0.2rem;
+  border: solid 1px grey;
+}
+.notasInputEdit {
+  display: flex;
+
+}
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="button"] {
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+input[type="button"]:hover {
+  background-color: rgb(206, 206, 206);
+}
+
+/* Acordion */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+.active,
+.accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+}
+
+p{
+  color: grey;
+  font-size: 0.8rem;
+  margin-top: 5%;
+}
+
+.c-loader {
+  animation: is-rotating 1s infinite;
+  border: 6px solid #e5e5e5;
+  border-radius: 50%;
+  border-top-color: #ff3700;
+  height: 50px;
+  width: 50px;  
+  display: none;
+  position: absolute;
+  
+}
+#cLoaderN{bottom: -80%}
+#cLoaderA{bottom: -60%}
+#cLoaderF{bottom: -80%}
+#cLoaderR{bottom: -55%}
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}
+>>>>>>> 61c6e475079b7e323962ee29a81f7ce155fa79d8
