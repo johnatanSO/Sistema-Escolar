@@ -46,6 +46,7 @@
 <img width="80%" src="https://i.pinimg.com/originals/37/f2/79/37f2791c41420acece8498e7f01938f6.png">
 
 
-
-
-
+<div>
+ <h2>🎓 Autores</h2>
+ <h3>Feito com 💜 by <a href="https://github.com/johnatanSO">Johnatan Santos</a></h3>
+</div>
