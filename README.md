@@ -1,13 +1,13 @@
 # Sistema Escolar
 
 <p>Esse é um sistema de administração de alunos contruído como forma de estudar e aprofundar mais os conhecimentos na tecnologia de gestão de dados Firebase.</p>
-<p>O sistema possui funcionalidades para  o gerenciamento de:</p>
+<p>📝 O sistema possui funcionalidades para  o gerenciamento de:</p>
  <li>Notas</li>
  <li>Advertências</li>
  <li>Faltas</li>
  <li>E uma área para cadastro de novos alunos</li>
 
-<h2>Tecnologias utilizadas: </h2>
+<h2>🚀 Tecnologias utilizadas: </h2>
 
 <div style="display: inline_block">
   <img align="center" alt="John-HTML" height="50" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
@@ -16,8 +16,14 @@
   <img align="center" alt="John-Firebase" height="50" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg">
   <img align="center" alt="John-Jquery" height="50" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jquery/jquery-original.svg">
 </div>
-<h2>Link para testar: </h2>
+<br>
+<h2>👷 Como testar? </h2>
+<h3>Entre com o seguinte link: </h3>
 <a href="https://johnatanso.github.io/Sistema-Escolar">https://johnatanso.github.io/Sistema-Escolar</a>
+<h3>Ou</h3>
+<li> Clone o repositório com: git clone https://github.com/teteusAraujo/I-need-to-learn"
+<li> Entre em uma IDE de sua preferência 
+<li> Execute o servidor ou use um puglin que crie um servidor
 
 <h2>Login: </h2>
 <p>Para fazer login, utilize um dos seguintes conjuntos de dados abaixo ⬇⬇⬇</p>
@@ -34,6 +40,7 @@
   <li>Senha: 123456</li>
 </div>
 <br>
+ <h2>🖼 Imagem da tela de login: </h2>
 <img width="80%" src="https://i.pinimg.com/originals/37/f2/79/37f2791c41420acece8498e7f01938f6.png">
 
 
