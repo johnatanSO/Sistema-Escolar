@@ -42,6 +42,7 @@
   <li>Senha: 123456</li>
 </div>
 <br>
+ 
  <h2>🖼 Imagem da tela de login: </h2>
 <img width="80%" src="assets/images-for-show/screen-login.png">
  
@@ -51,7 +52,7 @@
  <h2>🖼 Imagem da tela de notas: </h2>
 <img width="80%" src="assets/images-for-show/tela-de-notas.png">
  
- <h2>🖼 Imagem da tela de cadastro de notas: </h2>
+ <h2>🖼 Imagem da tela de cadastro: </h2>
 <img width="80%" src="assets/images-for-show/editar-notas.png">
 
 
