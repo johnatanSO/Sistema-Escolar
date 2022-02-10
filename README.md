@@ -1,4 +1,4 @@
-# 🏫 Sistema Escolar
+<h1 align="center">🏫 Sistema Escolar</h1>
 
 <h3> 💻 Sobre o projeto</h3>
 
@@ -48,5 +48,5 @@
 
 <div>
  <h2>🎓 Autores</h2>
- <h3>Feito com 💜 by <a href="https://github.com/johnatanSO">Johnatan Santos</a></h3>
+ <h3>Feito com 💜 by <a href="https://github.com/johnatanSO" target="_blank">Johnatan Santos</a></h3>
 </div>
