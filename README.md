@@ -1,6 +1,11 @@
 # Sistema Escolar
 
-<p>Esse é um sistema de gerenciamento de alunos contruído como forma de estudar e aprofundar mais os conhecimentos na tecnologia de gerenciamento de dados Firebase.</p>
+<p>Esse é um sistema de administração de alunos contruído como forma de estudar e aprofundar mais os conhecimentos na tecnologia de gestão de dados Firebase.</p>
+<p>O sistema possui funcionalidades para  o gerenciamento de:</p>
+ <li>Notas</li>
+ <li>Advertências</li>
+ <li>Faltas</li>
+ <li>E uma área para cadastro de novos alunos</li>
 
 <h2>Tecnologias utilizadas: </h2>
 
@@ -15,15 +20,22 @@
 <a href="https://johnatanso.github.io/Sistema-Escolar">https://johnatanso.github.io/Sistema-Escolar</a>
 
 <h2>Login: </h2>
-<p>Para fazer login, utilize um dos seguintes dados ⬇⬇⬇</p>
-<div style="display: inline_block">
+<p>Para fazer login, utilize um dos seguintes conjuntos de dados abaixo ⬇⬇⬇</p>
+  
+<div>
   <h3>Como professor: </h3>
   <li>E-mail: professor@testeprofessor.com</li>
   <li>Senha: professor123</li>
 </div>
-<div style="display: inline_block">
+  
+<div>
   <h3>Como aluno: </h3>
   <li>E-mail: johnatan@testealuno.com</li>
   <li>Senha: 123456</li>
 </div>
+<img width="80%" src="https://i.pinimg.com/originals/37/f2/79/37f2791c41420acece8498e7f01938f6.png">
+
+
+
+
 
