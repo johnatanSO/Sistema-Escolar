@@ -43,7 +43,16 @@
 </div>
 <br>
  <h2>🖼 Imagem da tela de login: </h2>
-<img width="80%" src="https://i.pinimg.com/originals/37/f2/79/37f2791c41420acece8498e7f01938f6.png">
+<img width="80%" src="assets/images-for-show/screen-login.png">
+ 
+ <h2>🖼 Imagem da tela do usuário: </h2>
+<img width="80%" src="assets/images-for-show/Logado.png">
+ 
+ <h2>🖼 Imagem da tela de notas: </h2>
+<img width="80%" src="assets/images-for-show/tela-de-notas.png">
+ 
+ <h2>🖼 Imagem da tela de cadastro de notas: </h2>
+<img width="80%" src="assets/images-for-show/editar-notas.png">
 
 
 <div>
