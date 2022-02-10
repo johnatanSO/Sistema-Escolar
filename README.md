@@ -8,6 +8,20 @@
  <li>Advertências</li>
  <li>Faltas</li>
  <li>E uma área para cadastro de novos alunos</li>
+ <br>
+ 
+ <h2>🖼 Imagem da tela de login: </h2>
+<img width="80%" src="assets/images-for-show/screen-login.png">
+ 
+ <h2>🖼 Imagem da tela do usuário: </h2>
+<img width="80%" src="assets/images-for-show/Logado.png">
+ 
+ <h2>🖼 Imagem da tela de notas: </h2>
+<img width="80%" src="assets/images-for-show/tela-de-notas.png">
+ 
+ <h2>🖼 Imagem da tela de cadastro: </h2>
+<img width="80%" src="assets/images-for-show/editar-notas.png">
+ 
 
 <h2>🚀 Tecnologias utilizadas: </h2>
 
@@ -43,19 +57,6 @@
 </div>
 <br>
  
- <h2>🖼 Imagem da tela de login: </h2>
-<img width="80%" src="assets/images-for-show/screen-login.png">
- 
- <h2>🖼 Imagem da tela do usuário: </h2>
-<img width="80%" src="assets/images-for-show/Logado.png">
- 
- <h2>🖼 Imagem da tela de notas: </h2>
-<img width="80%" src="assets/images-for-show/tela-de-notas.png">
- 
- <h2>🖼 Imagem da tela de cadastro: </h2>
-<img width="80%" src="assets/images-for-show/editar-notas.png">
-
-
 <div>
  <h2>🎓 Autores</h2>
  <h3>Feito com 💜 by <a href="https://github.com/johnatanSO" target="_blank">Johnatan Santos</a></h3>
