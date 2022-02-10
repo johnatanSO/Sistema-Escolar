@@ -1,4 +1,6 @@
-# Sistema Escolar
+# 🏫 Sistema Escolar
+
+<h3> 💻 Sobre o projeto</h3>
 
 <p>Esse é um sistema de administração de alunos contruído como forma de estudar e aprofundar mais os conhecimentos na tecnologia de gestão de dados Firebase.</p>
 <p>📝 O sistema possui funcionalidades para  o gerenciamento de:</p>
@@ -29,13 +31,13 @@
 <p>Para fazer login, utilize um dos seguintes conjuntos de dados abaixo ⬇⬇⬇</p>
   
 <div>
-  <h3>Como professor: </h3>
+  <h3>👨🏻‍🏫 Como professor: </h3>
   <li>E-mail: professor@testeprofessor.com</li>
   <li>Senha: professor123</li>
 </div>
   
 <div>
-  <h3>Como aluno: </h3>
+  <h3>👨🏻‍🎓 Como aluno: </h3>
   <li>E-mail: johnatan@testealuno.com</li>
   <li>Senha: 123456</li>
 </div>
