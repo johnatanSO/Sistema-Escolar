@@ -33,6 +33,7 @@
   <li>E-mail: johnatan@testealuno.com</li>
   <li>Senha: 123456</li>
 </div>
+<br>
 <img width="80%" src="https://i.pinimg.com/originals/37/f2/79/37f2791c41420acece8498e7f01938f6.png">
 
 
